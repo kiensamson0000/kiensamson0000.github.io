@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const isProd = process.env.NODE_ENV === 'production';
+
+const prodNextConfig = {
   /**
    * Enable static exports for the App Router.
    *
@@ -23,6 +26,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+}
+
+const localNextConfig = {
+  reactStrictMode: true,
 };
 
+const nextConfig = isProd ? prodNextConfig : localNextConfig;
+
 export default nextConfig;
+
+
