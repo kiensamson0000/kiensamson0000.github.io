@@ -10,13 +10,13 @@ import Header from "@/components/common/header";
 import ProgressIndicator from "@/components/common/progress-indicator";
 import Cursor from "@/components/common/cursor";
 import HeroSection from "@/components/home/hero";
-// import ProjectsSection from "@/components/home/projects";
+import ProjectsSection from "@/components/home/projects";
 import QuoteSection from "@/components/home/quote";
 import SkillsSection from "@/components/home/skills";
 import CollaborationSection from "@/components/home/collaboration";
 import Footer from "@/components/common/footer";
-// import TimelineSection from "@/components/home/timeline";
-// import Scripts from "@/components/common/scripts";
+import TimelineSection from "@/components/home/timeline";
+import Scripts from "@/components/common/scripts";
 import AboutSection from "@/components/home/about";
 
 const DEBOUNCE_TIME = 100;
@@ -76,14 +76,14 @@ export default function Home() {
           {renderBackdrop()}
           <HeroSection />
           <AboutSection />
-          {/* <ProjectsSection isDesktop={isDesktop} /> */}
+          <ProjectsSection isDesktop={isDesktop} />
           <QuoteSection />
           <SkillsSection />
-          {/* <TimelineSection isDesktop={isDesktop} /> */}
+          <TimelineSection isDesktop={isDesktop} />
           <CollaborationSection />
           <Footer />
         </main>
-        {/* <Scripts /> */}
+        <Scripts />
       </Layout>
     </>
   );
