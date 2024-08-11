@@ -65,19 +65,13 @@ const Cursor = ({ isDesktop }: IDesktop) => {
     if (isDesktop && !isSmallScreen()) {
       initCursorAnimation();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cursor, follower, isDesktop]);
 
   return (
     <>
-      <div
-        ref={cursor}
-        className={`${styles.cursor} ${CURSOR_STYLES.CURSOR}`}
-      ></div>
-      <div
-        ref={follower}
-        className={`${styles.cursorFollower} ${CURSOR_STYLES.FOLLOWER}`}
-      ></div>
+      <div ref={cursor} className={`${styles.cursor} ${CURSOR_STYLES.CURSOR}`}></div>
+      <div ref={follower} className={`${styles.cursorFollower} ${CURSOR_STYLES.FOLLOWER}`}></div>
     </>
   );
 };

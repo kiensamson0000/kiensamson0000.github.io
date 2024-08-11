@@ -5,8 +5,7 @@ import { isSmallScreen, NO_MOTION_PREFERENCE_QUERY } from "pages";
 
 const COLLABORATION_STYLE = {
   SLIDING_TEXT: "opacity-20 text-5xl md:text-7xl font-bold whitespace-nowrap",
-  SECTION:
-    "w-full relative select-none tall:py-36 py-48 section-container flex flex-col",
+  SECTION: "w-full relative select-none tall:py-36 py-48 section-container flex flex-col",
   TITLE: "mt-6 md:mt-8 font-medium text-4xl md:text-5xl text-center",
 };
 
@@ -37,9 +36,7 @@ const CollaborationSection = () => {
     });
   };
 
-  const initSlidingTextAnimation = (
-    targetSection: MutableRefObject<HTMLDivElement>
-  ) => {
+  const initSlidingTextAnimation = (targetSection: MutableRefObject<HTMLDivElement>) => {
     const slidingTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
 
     slidingTl
@@ -88,28 +85,19 @@ const CollaborationSection = () => {
   const renderTitle = () => (
     <h1
       ref={quoteRef}
-      className={`${COLLABORATION_STYLE.TITLE} ${
-        willChange ? "will-change-opacity" : ""
-      }`}
+      className={`${COLLABORATION_STYLE.TITLE} ${willChange ? "will-change-opacity" : ""}`}
     >
-      Interested in <span className="text-strong font-bold">Collaboration</span>
-      ?
+      Interested in <span className="text-strong font-bold">Collaboration</span>?
     </h1>
   );
 
   return (
     <section className={COLLABORATION_STYLE.SECTION} ref={targetSection}>
-      {renderSlidingText(
-        " User Interface Design  User Experience Design ",
-        "ui-left"
-      )}
+      {renderSlidingText(" User Interface Design  User Experience Design ", "ui-left")}
 
       {renderTitle()}
 
-      {renderSlidingText(
-        " Frontend Development  Motion Graphics ",
-        "mt-6 md:mt-8 ui-right"
-      )}
+      {renderSlidingText(" Frontend Development  Motion Graphics ", "mt-6 md:mt-8 ui-right")}
     </section>
   );
 };

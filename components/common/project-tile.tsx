@@ -63,10 +63,7 @@ const ProjectTile = ({
   );
 
   const renderProjectName = (name: string): React.ReactNode => (
-    <h1
-      className="text-2xl sm:text-3xl z-10 pl-2"
-      style={{ transform: "translateZ(3rem)" }}
-    >
+    <h1 className="text-2xl sm:text-3xl z-10 pl-2" style={{ transform: "translateZ(3rem)" }}>
       {name}
     </h1>
   );
@@ -88,11 +85,7 @@ const ProjectTile = ({
     </>
   );
 
-  const renderProjectImage = (
-    image: string,
-    blurImage: string,
-    name: string
-  ): React.ReactNode => (
+  const renderProjectImage = (image: string, blurImage: string, name: string): React.ReactNode => (
     <Image
       placeholder="blur"
       blurDataURL={blurImage}
@@ -110,9 +103,7 @@ const ProjectTile = ({
       rel="noreferrer"
       className="link overflow-hidden rounded-3xl snap-start"
       style={{
-        maxWidth: animationEnabled
-          ? "calc(100vw - 2rem)"
-          : "calc(100vw - 4rem)",
+        maxWidth: animationEnabled ? "calc(100vw - 2rem)" : "calc(100vw - 4rem)",
         flex: "1 0 auto",
         WebkitMaskImage: "-webkit-radial-gradient(white, black)",
       }}

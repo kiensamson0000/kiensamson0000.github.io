@@ -36,9 +36,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
   const svgContainer: MutableRefObject<HTMLDivElement> = useRef(null);
   const screenContainer: MutableRefObject<HTMLDivElement> = useRef(null);
 
-  const addNodeRefsToItems = (
-    timeline: Array<TimelineNodeV2>
-  ): Array<LinkedTimelineNode> => {
+  const addNodeRefsToItems = (timeline: Array<TimelineNodeV2>): Array<LinkedTimelineNode> => {
     return timeline.map((node, idx) => ({
       ...node,
       next: timeline[idx + 1],
@@ -75,9 +73,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
 
               if (shouldDrawLine) {
                 // TO DO fix syntax
-                svg = shouldDrawLine
-                  ? `${drawLine(node, lineY, index, isDiverged)}${svg}`
-                  : svg;
+                svg = shouldDrawLine ? `${drawLine(node, lineY, index, isDiverged)}${svg}` : svg;
                 y = y + separation;
                 index++;
               }
@@ -118,11 +114,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
     } ></rect><circle cx=${x} cy=${y} r='7' stroke=${svgColor} class='dot' ></circle>`;
   };
 
-  const drawDot = (
-    timelineNode: LinkedCheckpointNode,
-    y: number,
-    isDiverged: boolean
-  ) => {
+  const drawDot = (timelineNode: LinkedCheckpointNode, y: number, isDiverged: boolean) => {
     const { next, alignment } = timelineNode as LinkedCheckpointNode;
 
     // Diverging
@@ -135,21 +127,14 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
       y = y + curveLength - 6 * dotSize;
     }
 
-    const dotString = getDotString(
-      alignment === Branch.LEFT ? leftBranchX : rightBranchX,
-      y
-    );
+    const dotString = getDotString(alignment === Branch.LEFT ? leftBranchX : rightBranchX, y);
 
     const textString = addText(timelineNode, y, isDiverged);
 
     return `${textString}${dotString}`;
   };
 
-  const addText = (
-    timelineNode: LinkedCheckpointNode,
-    y: number,
-    isDiverged: boolean
-  ) => {
+  const addText = (timelineNode: LinkedCheckpointNode, y: number, isDiverged: boolean) => {
     const { title, subtitle, size, image } = timelineNode;
 
     const offset = isDiverged ? rightBranchX : 10;
@@ -198,8 +183,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
 
     // If already diverged, draw parallel line to the existing line
     if (isDiverged) {
-      const divergedLineX =
-        alignment === Branch.LEFT ? rightBranchX : leftBranchX;
+      const divergedLineX = alignment === Branch.LEFT ? rightBranchX : leftBranchX;
       str = str.concat(
         `<line class='str' x1=${divergedLineX} y1=${y} x2=${divergedLineX} y2=${lineY} stroke=${svgColor} /><line class='str line-${i}' x1=${divergedLineX} y1=${y} x2=${divergedLineX} y2=${lineY} stroke=${animColor} />`
       );
@@ -230,9 +214,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
       case NodeTypes.CONVERGE:
         return `<path class='str' d='M ${rightBranchX} ${
           y + separation - curveLength
-        } C ${rightBranchX} ${
-          y + separation - curveLength + curveLength / 2
-        } ${leftBranchX} ${
+        } C ${rightBranchX} ${y + separation - curveLength + curveLength / 2} ${leftBranchX} ${
           y + separation - curveLength + curveLength / 2
         } ${leftBranchX} ${
           y + separation
@@ -240,9 +222,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
           y + separation - curveLength
         )} stroke=${svgColor} /><path class='str anim-branch branch-${i}' d='M ${rightBranchX} ${
           y + separation - curveLength
-        } C ${rightBranchX} ${
-          y + separation - curveLength + curveLength / 2
-        } ${leftBranchX} ${
+        } C ${rightBranchX} ${y + separation - curveLength + curveLength / 2} ${leftBranchX} ${
           y + separation - curveLength + curveLength / 2
         } ${leftBranchX} ${
           y + separation
@@ -370,13 +350,10 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
 
       // all except the last slide
       if (index !== svgCheckpointItems.length - 1) {
-        timeline.to(
-          screenContainer.current.querySelector(`.slide-${index + 1}`),
-          {
-            opacity: 0,
-            delay: 2.35,
-          }
-        );
+        timeline.to(screenContainer.current.querySelector(`.slide-${index + 1}`), {
+          opacity: 0,
+          delay: 2.35,
+        });
       }
     });
   };
@@ -400,8 +377,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
       // Animation for right side slides
       setSlidesAnimation(timeline);
 
-      const platformHeight =
-        screenContainer.current.getBoundingClientRect().height;
+      const platformHeight = screenContainer.current.getBoundingClientRect().height;
 
       trigger = screenContainer.current;
       start = `top ${(window.innerHeight - platformHeight) / 2}`;
@@ -468,9 +444,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
         <div className="absolute top-0 left-0 h-full w-full">
           {svgCheckpointItems.map((item, index) => (
             <Image
-              className={`w-full absolute top-0 object-cover slide-${
-                index + 1
-              }`}
+              className={`w-full absolute top-0 object-cover slide-${index + 1}`}
               src={(item as CheckpointNode).slideImage || ""}
               key={`${(item as CheckpointNode).title}-${index}`}
               alt="Timeline"
@@ -496,9 +470,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
     <div className="flex flex-col">
       <p className="section-title-sm seq">MILESTONES</p>
       <h1 className="section-heading seq mt-2">Timeline</h1>
-      <h2 className="text-2xl md:max-w-2xl w-full seq mt-2">
-        A quick recap of proud moments
-      </h2>
+      <h2 className="text-2xl md:max-w-2xl w-full seq mt-2">A quick recap of proud moments</h2>
     </div>
   );
 
@@ -512,9 +484,7 @@ const TimelineSection = ({ isDesktop }: IDesktop) => {
         <div className="col-span-12 md:col-span-6 line-svg" ref={svgContainer}>
           {renderSVG()}
         </div>
-        <div className="col-span-12 md:col-span-6 md:flex hidden">
-          {renderSlides()}
-        </div>
+        <div className="col-span-12 md:col-span-6 md:flex hidden">{renderSlides()}</div>
       </div>
     </section>
   );

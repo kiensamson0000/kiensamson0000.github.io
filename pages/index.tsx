@@ -22,8 +22,7 @@ import AboutSection from "@/components/home/about";
 const DEBOUNCE_TIME = 100;
 
 export const isSmallScreen = (): boolean => document.body.clientWidth < 767;
-export const NO_MOTION_PREFERENCE_QUERY =
-  "(prefers-reduced-motion: no-preference)";
+export const NO_MOTION_PREFERENCE_QUERY = "(prefers-reduced-motion: no-preference)";
 
 export interface IDesktop {
   isDesktop: boolean;
@@ -41,8 +40,7 @@ export default function Home() {
     clearTimeout(timer);
     timer = setTimeout(() => {
       const isDesktopResult =
-        typeof window.orientation === "undefined" &&
-        navigator.userAgent.indexOf("IEMobile") === -1;
+        typeof window.orientation === "undefined" && navigator.userAgent.indexOf("IEMobile") === -1;
 
       window.history.scrollRestoration = "manual";
 
@@ -54,9 +52,8 @@ export default function Home() {
     debouncedDimensionCalculator();
 
     window.addEventListener("resize", debouncedDimensionCalculator);
-    return () =>
-      window.removeEventListener("resize", debouncedDimensionCalculator);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => window.removeEventListener("resize", debouncedDimensionCalculator);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer]);
 
   const renderBackdrop = (): React.ReactNode => (
@@ -76,10 +73,10 @@ export default function Home() {
           {renderBackdrop()}
           <HeroSection />
           <AboutSection />
-          <ProjectsSection isDesktop={isDesktop} />
+          {/* <ProjectsSection isDesktop={isDesktop} /> */}
           <QuoteSection />
           <SkillsSection />
-          <TimelineSection isDesktop={isDesktop} />
+          {/* <TimelineSection isDesktop={isDesktop} /> */}
           <CollaborationSection />
           <Footer />
         </main>

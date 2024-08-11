@@ -6,8 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { IDesktop, NO_MOTION_PREFERENCE_QUERY } from "pages";
 
 const PROJECT_STYLES = {
-  SECTION:
-    "w-full relative select-none section-container flex-col flex py-8 justify-center",
+  SECTION: "w-full relative select-none section-container flex-col flex py-8 justify-center",
   PROJECTS_WRAPPER:
     "tall:mt-12 mt-6 grid grid-flow-col auto-cols-max md:gap-10 gap-6 project-wrapper w-fit seq snap-x scroll-pl-6 snap-mandatory",
 };
@@ -17,8 +16,7 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
   const sectionTitleElementRef: MutableRefObject<HTMLDivElement> = useRef(null);
 
   const [willChange, setwillChange] = useState(false);
-  const [horizontalAnimationEnabled, sethorizontalAnimationEnabled] =
-    useState(false);
+  const [horizontalAnimationEnabled, sethorizontalAnimationEnabled] = useState(false);
 
   const initRevealAnimation = (
     targetSectionRef: MutableRefObject<HTMLDivElement>
@@ -50,8 +48,7 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
       document.body.clientWidth -
       targetSectionRef.current.querySelector(".inner-container").clientWidth;
     const elementWidth =
-      sidePadding +
-      targetSectionRef.current.querySelector(".project-wrapper").clientWidth;
+      sidePadding + targetSectionRef.current.querySelector(".project-wrapper").clientWidth;
     targetSectionRef.current.style.width = `${elementWidth}px`;
     const width = window.innerWidth - elementWidth;
     const duration = `${(elementWidth / window.innerHeight) * 100}%`;
@@ -98,14 +95,10 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
       projectWrapper.classList.add("overflow-x-auto");
       projectWrapper.style.setProperty("width", `calc(100vw)`);
       projectWrapper.style.setProperty("padding", `0 ${parentPadding}`);
-      projectWrapper.style.setProperty(
-        "transform",
-        `translateX(-${parentPadding})`
-      );
+      projectWrapper.style.setProperty("transform", `translateX(-${parentPadding})`);
     }
 
-    const [revealTimeline, revealScrollTrigger] =
-      initRevealAnimation(targetSectionRef);
+    const [revealTimeline, revealScrollTrigger] = initRevealAnimation(targetSectionRef);
 
     return () => {
       projectsScrollTrigger && projectsScrollTrigger.kill();
@@ -117,16 +110,14 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
 
   const renderSectionTitle = (): React.ReactNode => (
     <div
-      className={`flex flex-col inner-container  ${
-        willChange ? "will-change-transform" : ""
-      }`}
+      className={`flex flex-col inner-container  ${willChange ? "will-change-transform" : ""}`}
       ref={sectionTitleElementRef}
     >
       <p className="section-title-sm seq">PROJECTS</p>
       <h1 className="section-heading seq mt-2">My Works</h1>
       <h2 className="text-2xl md:max-w-3xl w-full seq max-w-sm mt-2">
-        I have contributed in over 20+ projects ranging from Frontend
-        development, UI/UX design, Open Source, and Motion Graphics
+        I have contributed in over 20+ projects ranging from Frontend development, UI/UX design,
+        Open Source, and Motion Graphics
       </h2>
     </div>
   );
@@ -149,9 +140,7 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
       id={projectsSectionRef}
     >
       {renderSectionTitle()}
-      <div className={PROJECT_STYLES.PROJECTS_WRAPPER}>
-        {renderProjectTiles()}
-      </div>
+      <div className={PROJECT_STYLES.PROJECTS_WRAPPER}>{renderProjectTiles()}</div>
     </section>
   );
 };

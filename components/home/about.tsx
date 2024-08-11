@@ -16,21 +16,12 @@ const AboutSection = () => {
       defaults: { ease: Linear.easeNone, duration: 0.1 },
     });
     timeline
-      .fromTo(
-        quoteRef.current.querySelector(".about-1"),
-        { opacity: 0.2 },
-        { opacity: 1 }
-      )
+      .fromTo(quoteRef.current.querySelector(".about-1"), { opacity: 0.2 }, { opacity: 1 })
       .to(quoteRef.current.querySelector(".about-1"), {
         opacity: 0.2,
         delay: 0.5,
       })
-      .fromTo(
-        quoteRef.current.querySelector(".about-2"),
-        { opacity: 0.2 },
-        { opacity: 1 },
-        "<"
-      )
+      .fromTo(quoteRef.current.querySelector(".about-2"), { opacity: 0.2 }, { opacity: 1 }, "<")
       .to(quoteRef.current.querySelector(".about-2"), {
         opacity: 0.2,
         delay: 1,
@@ -48,31 +39,18 @@ const AboutSection = () => {
   };
 
   useEffect(() => {
-    const aboutScrollTriggerInstance = initAboutAnimation(
-      quoteRef,
-      targetSection
-    );
+    const aboutScrollTriggerInstance = initAboutAnimation(quoteRef, targetSection);
 
     return aboutScrollTriggerInstance.kill;
   }, [quoteRef, targetSection]);
 
   const renderQuotes = (): React.ReactNode => (
     <h1 ref={quoteRef} className="font-medium text-3xl sm:text-4xl md:text-6xl">
-      <span
-        className={`about-1 leading-tight ${
-          willChange ? "will-change-opacity" : ""
-        }`}
-      >
-        I am a passionate UI Engineer who bridges the gap between development
-        and design.{" "}
+      <span className={`about-1 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
+        I am a passionate UI Engineer who bridges the gap between development and design.{" "}
       </span>
-      <span
-        className={`about-2 leading-tight ${
-          willChange ? "will-change-opacity" : ""
-        }`}
-      >
-        I take responsibility to craft a good user experience using modern
-        frontend architecture.
+      <span className={`about-2 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
+        I take responsibility to craft a good user experience using modern frontend architecture.
       </span>
     </h1>
   );

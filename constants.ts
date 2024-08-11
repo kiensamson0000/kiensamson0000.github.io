@@ -1,4 +1,3 @@
-
 export const METADATA = {
   title: "Portfolio | Kien Khuat",
   description:
@@ -30,18 +29,20 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-  "I design and develop things",
-  "I develop modern frontend apps",
-  "I design dynamic user experience",
-  "I design and develop motion",
+  "I build creative and scalable web solutions.",
+  "Full-stack developer with a passion for UI/UX.",
+  "Creating seamless web experiences.",
+  "Let's build something amazing together.",
 ];
 
 export const EMAIL = "kien99@gmail.com";
 
 export const SOCIAL_LINKS = {
-  linkedin: "",
-  github: "",
-  facebook: "",
+  linkedin: "https://www.linkedin.com/in/kien-khuat",
+  github: "https://github.com/kiensamson0000",
+  facebook: "https://www.facebook.com/kinn.khk",
+  instagram: "https://www.instagram.com/kinn.koh.i.noor",
+  // twitter: "",
 };
 
 export interface IProject {
@@ -211,8 +212,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "Speaker at React India",
     size: ItemSize.SMALL,
-    subtitle:
-      "Discussed on Interaction to Next Paint (INP), a Google Core Web Vital metric",
+    subtitle: "Discussed on Interaction to Next Paint (INP), a Google Core Web Vital metric",
     image: "/timeline/reactindia.svg",
     slideImage: "/timeline/reactindia.jpg",
     shouldDrawLine: true,
@@ -268,8 +268,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "UI Engineer (freelance)",
     size: ItemSize.SMALL,
-    subtitle:
-      "Built solutions for employee engagement, productivity and performance 🎯",
+    subtitle: "Built solutions for employee engagement, productivity and performance 🎯",
     image: "/timeline/huminos.svg",
     slideImage: "/timeline/huminos-freelance.jpg",
     shouldDrawLine: true,
@@ -321,8 +320,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "Graduated from College 🎓",
     size: ItemSize.SMALL,
-    subtitle:
-      "Spent 4 years laying the foundation of Frontend Engineering, UI/UX, and Fitness!",
+    subtitle: "Spent 4 years laying the foundation of Frontend Engineering, UI/UX, and Fitness!",
     image: "/timeline/akgec.svg",
     slideImage: "/timeline/farewell.jpg",
     shouldDrawLine: true,
@@ -373,8 +371,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "1st position in Web Designing, IMSU",
     size: ItemSize.SMALL,
-    subtitle:
-      "Competed against 20+ teams for design and development of web project from scratch",
+    subtitle: "Competed against 20+ teams for design and development of web project from scratch",
     slideImage: "/timeline/ims-17.jpg",
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
@@ -395,8 +392,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "1st position in Web Design, ABES ACM",
     size: ItemSize.SMALL,
-    subtitle:
-      "Competed in web and graphic design challenge with 100+ participants.",
+    subtitle: "Competed in web and graphic design challenge with 100+ participants.",
     slideImage: "/timeline/abes-17.jpg",
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
@@ -406,8 +402,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "Lecture on Web Technologies",
     size: ItemSize.SMALL,
-    subtitle:
-      "Guided 300+ students on getting started with web technologies like HTML/CSS and JS",
+    subtitle: "Guided 300+ students on getting started with web technologies like HTML/CSS and JS",
     slideImage: "/timeline/web-17.jpg",
     shouldDrawLine: true,
     alignment: Branch.LEFT,

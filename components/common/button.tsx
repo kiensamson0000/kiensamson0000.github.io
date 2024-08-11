@@ -40,8 +40,8 @@ const Button = ({
     return type === ButtonTypes.PRIMARY
       ? styles.primary
       : type === ButtonTypes.WHITE
-      ? styles.white
-      : styles.outline;
+        ? styles.white
+        : styles.outline;
   }
 };
 

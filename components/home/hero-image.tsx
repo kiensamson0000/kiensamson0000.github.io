@@ -74,11 +74,7 @@ const HeroImage = () => (
         />
       </g>
       <g id="Group_17">
-        <g
-          id="angular-icon-1_1"
-          clipPath="url(#clip0)"
-          filter="url(#filter0_d)"
-        >
+        <g id="angular-icon-1_1" clipPath="url(#clip0)" filter="url(#filter0_d)">
           <path
             id="Vector"
             d="M355.649 571.355l18.308-17.836 25.985-2.67 9.639 30.59-14.05 19.066-23.259-1.767-16.623-27.383z"
@@ -329,27 +325,15 @@ const HeroImage = () => (
         />
         <g id="Path_6">
           <path d="M972.646 548.283v-33.912h-408.47v33.912" fill="#111827" />
-          <path
-            d="M972.646 548.283v-33.912h-408.47v33.912"
-            stroke="#fff"
-            strokeWidth={1.118}
-          />
+          <path d="M972.646 548.283v-33.912h-408.47v33.912" stroke="#fff" strokeWidth={1.118} />
         </g>
         <g id="Path_7">
           <path d="M972.646 581.821V547.91H535.855v33.911" fill="#111827" />
-          <path
-            d="M972.646 581.821V547.91H535.855v33.911"
-            stroke="#fff"
-            strokeWidth={1.118}
-          />
+          <path d="M972.646 581.821V547.91H535.855v33.911" stroke="#fff" strokeWidth={1.118} />
         </g>
         <g id="Path_8">
           <path d="M972.646 615.36v-33.911H507.533v33.911" fill="#111827" />
-          <path
-            d="M972.646 615.36v-33.911H507.533v33.911"
-            stroke="#fff"
-            strokeWidth={1.118}
-          />
+          <path d="M972.646 615.36v-33.911H507.533v33.911" stroke="#fff" strokeWidth={1.118} />
         </g>
         <g id="Path_9">
           <mask id="path-53-inside-1" fill="#fff">
@@ -1528,12 +1512,7 @@ const HeroImage = () => (
           stroke="#fff"
           strokeWidth={1.118}
         />
-        <path
-          id="Path_18"
-          d="M399.729 590.476l19.923 7.096"
-          stroke="#231F20"
-          strokeWidth={1.118}
-        />
+        <path id="Path_18" d="M399.729 590.476l19.923 7.096" stroke="#231F20" strokeWidth={1.118} />
         <path
           id="Rectangle_58"
           d="M400.173 590.474H327.07v58.425h73.103v-58.425z"
@@ -2396,13 +2375,7 @@ const HeroImage = () => (
                 d="M310.164 630.715c-1.661 0-3.008-1.392-3.008-3.11s1.347-3.11 3.008-3.11c1.66 0 3.007 1.392 3.007 3.11s-1.347 3.11-3.007 3.11z"
                 fill="#fff"
               />
-              <g
-                id="Group_8"
-                fillRule="evenodd"
-                clipRule="evenodd"
-                stroke="#fff"
-                strokeWidth={2}
-              >
+              <g id="Group_8" fillRule="evenodd" clipRule="evenodd" stroke="#fff" strokeWidth={2}>
                 <path
                   id="Vector_120"
                   d="M310.163 621.281c-4.037 0-7.788.599-10.616 1.606-3.407 1.214-5.502 3.053-5.502 4.718 0 1.735 2.22 3.689 5.879 4.943 2.767.948 6.407 1.442 10.239 1.442 3.93 0 7.651-.464 10.448-1.453 3.54-1.251 5.671-3.23 5.671-4.932 0-1.652-2-3.477-5.359-4.688-2.839-1.024-6.682-1.636-10.759-1.636h-.001z"
@@ -2453,49 +2426,25 @@ const HeroImage = () => (
     </g>
     <defs>
       <clipPath id="clip0">
-        <path
-          fill="#fff"
-          transform="rotate(-24.663 1464.712 -523.355)"
-          d="M0 0h49v52H0z"
-        />
+        <path fill="#fff" transform="rotate(-24.663 1464.712 -523.355)" d="M0 0h49v52H0z" />
       </clipPath>
       <clipPath id="clip1">
-        <path
-          fill="#fff"
-          transform="translate(440 166)"
-          d="M0 0h40.444v9.333H0z"
-        />
+        <path fill="#fff" transform="translate(440 166)" d="M0 0h40.444v9.333H0z" />
       </clipPath>
       <clipPath id="clip2">
-        <path
-          fill="#fff"
-          transform="translate(416 403.007)"
-          d="M0 0h34v34H0z"
-        />
+        <path fill="#fff" transform="translate(416 403.007)" d="M0 0h34v34H0z" />
       </clipPath>
       <clipPath id="clip3">
-        <path
-          fill="#fff"
-          transform="translate(337.818 215)"
-          d="M0 0h43v50H0z"
-        />
+        <path fill="#fff" transform="translate(337.818 215)" d="M0 0h43v50H0z" />
       </clipPath>
       <clipPath id="clip4">
-        <path
-          fill="#fff"
-          transform="matrix(-1 0 0 1 327.001 610.219)"
-          d="M0 0h33.675v34.83H0z"
-        />
+        <path fill="#fff" transform="matrix(-1 0 0 1 327.001 610.219)" d="M0 0h33.675v34.83H0z" />
       </clipPath>
       <clipPath id="clip5">
         <rect x={567} y={134} width={37} height={37} rx={4} fill="#fff" />
       </clipPath>
       <clipPath id="clip6">
-        <path
-          fill="#fff"
-          transform="translate(576.514 138.757)"
-          d="M0 0h18.5v27.486H0z"
-        />
+        <path fill="#fff" transform="translate(576.514 138.757)" d="M0 0h18.5v27.486H0z" />
       </clipPath>
       <filter
         id="filter0_d"
@@ -2507,10 +2456,7 @@ const HeroImage = () => (
         colorInterpolationFilters="sRGB"
       >
         <feFlood floodOpacity={0} result="BackgroundImageFix" />
-        <feColorMatrix
-          in="SourceAlpha"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        />
+        <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
         <feOffset dy={4} />
         <feGaussianBlur stdDeviation={7.5} />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
@@ -2527,10 +2473,7 @@ const HeroImage = () => (
         colorInterpolationFilters="sRGB"
       >
         <feFlood floodOpacity={0} result="BackgroundImageFix" />
-        <feColorMatrix
-          in="SourceAlpha"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        />
+        <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
         <feOffset dy={4} />
         <feGaussianBlur stdDeviation={7.5} />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
@@ -2547,10 +2490,7 @@ const HeroImage = () => (
         colorInterpolationFilters="sRGB"
       >
         <feFlood floodOpacity={0} result="BackgroundImageFix" />
-        <feColorMatrix
-          in="SourceAlpha"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        />
+        <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
         <feOffset dy={4} />
         <feGaussianBlur stdDeviation={7.5} />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
