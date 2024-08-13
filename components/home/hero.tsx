@@ -1,10 +1,11 @@
-import { EMAIL, MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
+import { MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
 import React, { MutableRefObject, useEffect, useRef } from "react";
 import Typed from "typed.js";
 import Image from "next/image";
 import { gsap, Linear } from "gsap";
 import Button, { ButtonTypes } from "../common/button";
 import HeroImage from "./hero-image";
+import ContactSection from "./contact";
 
 const HERO_STYLES = {
   SECTION: "w-full flex md:items-center py-8 section-container min-h-screen relative mb-24",
@@ -86,19 +87,9 @@ const HeroSection = React.memo(() => {
             target: "_blank",
             rel: "noreferrer",
           }}
-          href="/KienKhuat_Resume.pdf"
-          // bo sung sau
+          href={SOCIAL_LINKS.linkedin}
         ></Button>
-        <Button
-          classes="ml-3"
-          type={ButtonTypes.PRIMARY}
-          name="Let's Talk"
-          href={""}
-          otherProps={{
-            target: "_blank",
-            rel: "noreferrer",
-          }}
-        ></Button>
+        <ContactSection typeButton={ButtonTypes.PRIMARY} />
       </div>
     </div>
   );

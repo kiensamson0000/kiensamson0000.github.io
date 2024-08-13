@@ -3,6 +3,7 @@ import Image from "next/image";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { gsap, Linear } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Icon } from "@iconify/react";
 
 const SKILL_STYLES = {
   SECTION: "w-full relative select-none mb-24 section-container py-12 flex flex-col justify-center",
@@ -42,8 +43,9 @@ const SkillsSection = () => {
       <p className="section-title-sm seq">SKILLS</p>
       <h1 className="section-heading seq mt-2">My Skills</h1>
       <h2 className="text-2xl md:max-w-2xl w-full seq mt-2">
-        I like to take responsibility to craft aesthetic user experience using modern frontend
-        architecture.{" "}
+        Proficient in crafting and optimizing web applications, with a strong focus on both frontend
+        design and backend solutions, coupled with a flexible and innovative approach to solving
+        complex challenges.
       </h2>
     </div>
   );
@@ -59,19 +61,20 @@ const SkillsSection = () => {
     </>
   );
 
-  const renderSkillColumn = (title: string, skills: string[]): React.ReactNode => (
+  const renderSkillColumn = (title: string, skills: any[]): React.ReactNode => (
     <>
       <h3 className={SKILL_STYLES.SKILL_TITLE}>{title}</h3>
       <div className={`flex flex-wrap seq ${willChange ? "will-change-opacity" : ""}`}>
         {skills.map((skill) => (
-          <Image
-            key={skill}
-            src={`/skills/${skill}.svg`}
-            alt={skill}
-            width={76}
-            height={76}
-            className="skill"
-          />
+          // <Image
+          //   key={skill}
+          //   src={`/skills/${skill}.svg`}
+          //   alt={skill}
+          //   width={76}
+          //   height={76}
+          //   className="skill"
+          // />
+          <Icon key={skill} icon={skill.icon} className="text-5xl md:text-7xl skill" />
         ))}
       </div>
     </>
@@ -83,12 +86,10 @@ const SkillsSection = () => {
       <div className={SKILL_STYLES.SECTION} id={MENULINKS[2].ref} ref={targetSection}>
         <div className="flex flex-col skills-wrapper">
           {renderSectionTitle()}
-          <div className="mt-10">{renderSkillColumn("FRONTEND DEVELOPMENT", SKILLS.frontend)}</div>
-          <div className="flex flex-wrap mt-10">
-            <div className="mr-6 mb-6">
-              {renderSkillColumn("User Interface, User Experience Design", SKILLS.userInterface)}
-            </div>
-            <div>{renderSkillColumn("Other Skills", SKILLS.other)}</div>
+          <div className="mt-8">{renderSkillColumn("FRONTEND DEVELOPMENT", SKILLS.frontend)}</div>
+          <div className="mt-4">{renderSkillColumn("BACKEND DEVELOPMENT", SKILLS.backend)}</div>
+          <div className="mt-4">
+            {renderSkillColumn("DEVELOPMENT & OPERATIONS", SKILLS.developmentOperations)}
           </div>
         </div>
       </div>

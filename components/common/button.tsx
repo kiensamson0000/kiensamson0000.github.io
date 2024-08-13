@@ -10,17 +10,23 @@ export enum ButtonTypes {
 const Button = ({
   type,
   onClick = () => {},
+  onMouseEnter = () => {},
+  onMouseLeave = () => {},
   name,
   href,
   classes = "",
   otherProps,
+  children,
 }: {
   type: ButtonTypes;
   onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   name: string;
-  href: string;
+  href?: string;
   classes?: string;
   otherProps?: Record<string, string>;
+  children?: React.ReactNode;
 }) => {
   const buttonClasses =
     "py-2 px-7 font-medium rounded text-base md:text-xl tracking-wide link duration-300 flex items-center";
@@ -29,10 +35,13 @@ const Button = ({
     <a
       {...otherProps}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       href={href}
       className={`${getButtonTypeStyles(type)} ${buttonClasses} ${classes}`}
     >
       {name}
+      {children}
     </a>
   );
 

@@ -1,6 +1,7 @@
-import { EMAIL, MENULINKS, SOCIAL_LINKS } from "../../constants";
+import { MENULINKS, SOCIAL_LINKS } from "../../constants";
 import Image from "next/image";
 import Button, { ButtonTypes } from "./button";
+import ContactSection from "../home/contact";
 
 const Footer = () => {
   const renderSocialIcons = (): React.ReactNode => {
@@ -32,19 +33,9 @@ const Footer = () => {
             target: "_blank",
             rel: "noreferrer",
           }}
-          href="/KienKhuat_Resume.pdf"
-          // bo sung href sau
+          href={SOCIAL_LINKS.linkedin}
         ></Button>
-        <Button
-          classes="ml-3"
-          type={ButtonTypes.WHITE}
-          name="Let's Talk"
-          href={EMAIL}
-          otherProps={{
-            target: "_blank",
-            rel: "noreferrer",
-          }}
-        ></Button>
+        <ContactSection typeButton={ButtonTypes.WHITE} />
       </div>
       <h2 className="text-center text-sm sm:text-base mt-8">
         Designed and Developed with ❤️ by Kien Khuat

@@ -166,22 +166,129 @@ export const PROJECTS: IProject[] = [
   },
 ];
 
-export const SKILLS = {
+export const SKILLS: any = {
   frontend: [
-    "javascript",
-    "react",
-    "redux",
-    "next",
-    "angular",
-    "gsap",
-    "tailwind",
-    "sass",
-    "svg",
-    "html",
-    "css",
+    {
+      name: "JavaScript",
+      icon: "skill-icons:javascript",
+    },
+    {
+      name: "TypeScript",
+      icon: "skill-icons:typescript",
+    },
+    {
+      name: "React",
+      icon: "skill-icons:react-light",
+    },
+    {
+      name: "NextJs",
+      icon: "skill-icons:nextjs-light",
+    },
+    {
+      name: "VueJs",
+      icon: "skill-icons:vuejs-light",
+    },
+    {
+      name: "Bootstrap",
+      icon: "skill-icons:bootstrap",
+    },
+    {
+      name: "Tailwind",
+      icon: "skill-icons:tailwindcss-light",
+    },
+    // "antdesign",
+    // "redux",
+    // "storybooks",
+    {
+      name: "Sass",
+      icon: "skill-icons:sass",
+    },
+    {
+      name: "HTML",
+      icon: "skill-icons:html",
+    },
+    {
+      name: "CSS",
+      icon: "skill-icons:css",
+    },
   ],
-  userInterface: ["figma", "sketch", "illustrator", "photoshop"],
-  other: ["git", "webpack", "gulp", "lightroom", "aftereffects"],
+  backend: [
+    {
+      name: "NodeJs",
+      icon: "skill-icons:nodejs-light",
+    },
+    {
+      name: "Python",
+      icon: "skill-icons:python-light",
+    },
+    {
+      name: "Nestjs",
+      icon: "skill-icons:nestjs-light",
+    },
+    // {
+    //   name: "Odoo",
+    //   icon: "skill-icons:python-light",
+    // },
+    // {
+    //   name: "Sql",
+    //   icon: "skill-icons:python-light",
+    // },
+    {
+      name: "MongoDB",
+      icon: "skill-icons:mongodb",
+    },
+    {
+      name: "MySQL",
+      icon: "skill-icons:mysql-light",
+    },
+    {
+      name: "Redis",
+      icon: "skill-icons:redis-light",
+    },
+    // {
+    //   name: "websocket",
+    //   icon: "skill-icons:python-light",
+    // },
+    {
+      name: "Elasticsearch",
+      icon: "skill-icons:elasticsearch-light",
+    },
+    // {
+    //   name: "RESTful API",
+    //   icon: "skill-icons:python-light",
+    // },
+    {
+      name: "GraphQL",
+      icon: "skill-icons:graphql-light",
+    },
+    // {
+    //   name: "json",
+    //   icon: "skill-icons:python-light",
+    // },
+  ],
+  devops: [""],
+  developmentOperations: [
+    {
+      name: "jest",
+      icon: "skill-icons:jest",
+    },
+    // {
+    //   name: "Design Patterns",
+    //   icon: "skill-icons:git",
+    // },
+    // {
+    //   name: "Scrum",
+    //   icon: "skill-icons:git",
+    // },
+    // {
+    //   name: "Agile",
+    //   icon: "skill-icons:git",
+    // },
+    {
+      name: "Git",
+      icon: "skill-icons:git",
+    },
+  ],
 };
 
 export enum Branch {
@@ -481,4 +588,6 @@ export interface BranchNode {
   type: NodeTypes.CONVERGE | NodeTypes.DIVERGE;
 }
 
-export const GTAG = "UA-163844688-1";
+export const GTAG = "G-5PGJS1C1ZS";
+
+export const appIdChaport = "66bac5f03140ae6faa215a5d";
