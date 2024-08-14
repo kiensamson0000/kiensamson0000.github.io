@@ -16,7 +16,11 @@ const HERO_STYLES = {
   TYPED_SPAN: "text-xl sm:text-2xl md:text-2xl seq",
 };
 
-const HeroSection = React.memo(() => {
+interface HeroSectionProps {
+  isDesktop: boolean;
+}
+
+const HeroSection = React.memo(({ isDesktop }: HeroSectionProps) => {
   const typedSpanElement: MutableRefObject<HTMLSpanElement> = useRef(null);
   const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
 
@@ -71,8 +75,8 @@ const HeroSection = React.memo(() => {
   const renderHeroContent = (): React.ReactNode => (
     <div className={HERO_STYLES.CONTENT}>
       <div className="md:mb-4 mb-2">
-        <h2 className="text-4xl seq">{`Hello, I'm Kien Khuat`}👋🏻</h2>
-        <h2 className="text-2xl seq">Software Engineer | Web Developer</h2>
+        <h2 className="text-3xl sm:text-4xl seq">{`Hello, I am Kien Khuat`}👋🏻</h2>
+        <h2 className="text-xl sm:text-3xl">Software Engineer | Web Developer</h2>
       </div>
       <p className="mb-4">
         <span className={HERO_STYLES.TYPED_SPAN} ref={typedSpanElement}></span>
@@ -89,7 +93,7 @@ const HeroSection = React.memo(() => {
           }}
           href={SOCIAL_LINKS.linkedin}
         ></Button>
-        <ContactSection typeButton={ButtonTypes.PRIMARY} />
+        <ContactSection typeButton={ButtonTypes.PRIMARY} isDesktop={isDesktop} />
       </div>
     </div>
   );

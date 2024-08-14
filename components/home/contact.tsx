@@ -7,7 +7,12 @@ const CONTACT_STYLE = {
     "absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center transition-opacity",
 };
 
-const ContactSection = ({ typeButton }: { typeButton: ButtonTypes }) => {
+interface ContactSectionProps {
+  typeButton: ButtonTypes;
+  isDesktop: boolean;
+}
+
+const ContactSection = ({ typeButton, isDesktop }: ContactSectionProps) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -27,19 +32,39 @@ const ContactSection = ({ typeButton }: { typeButton: ButtonTypes }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <span
-        className={`${isHovered || isCopied ? "opacity-0" : "opacity-100"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
-      >
-        {`Let's talk`}
-      </span>
-      <span
-        className={`${isHovered && !isCopied ? "opacity-100" : "opacity-0"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
-      >
-        Copy Email
-      </span>
-      <span className={`${isCopied ? "opacity-100" : "opacity-0"} ${CONTACT_STYLE.BUTTON_EMAIL}`}>
-        Copied!
-      </span>
+      {isDesktop && (
+        <>
+          <span
+            className={`${isHovered || isCopied ? "opacity-0" : "opacity-100"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
+          >
+            {`Let's talk`}
+          </span>
+          <span
+            className={`${isHovered && !isCopied ? "opacity-100" : "opacity-0"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
+          >
+            Copy Email
+          </span>
+          <span
+            className={`${isCopied ? "opacity-100" : "opacity-0"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
+          >
+            Copied!
+          </span>
+        </>
+      )}
+      {!isDesktop && (
+        <>
+          <span
+            className={`${isCopied ? "opacity-0" : "opacity-100"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
+          >
+            {`Let's talk`}
+          </span>
+          <span
+            className={`${isCopied ? "opacity-100" : "opacity-0"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
+          >
+            Copied!
+          </span>
+        </>
+      )}
     </Button>
   );
 };

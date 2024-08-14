@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import { gsap, Linear } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { IDesktop, isSmallScreen } from "pages";
+import { isSmallScreen } from "pages";
 
 const svgColor = "#9CA3AF";
 const animColor = "#FCD34D";
@@ -22,7 +22,11 @@ const leftBranchX = 13;
 const curveLength = 150;
 const dotSize = 26;
 
-const TimelineSection = ({ isDesktop }: IDesktop) => {
+interface TimelineSectionProps {
+  isDesktop: boolean;
+}
+
+const TimelineSection = ({ isDesktop }: TimelineSectionProps) => {
   const [svgWidth, setSvgWidth] = useState(400);
   const [rightBranchX, setRightBranchX] = useState(109);
 

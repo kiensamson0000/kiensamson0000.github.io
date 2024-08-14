@@ -64,22 +64,22 @@ const AboutSection = () => {
       </h1>
       <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
         <span className={`about-2 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          {`In my career, I’ve specialized in leveraging the latest web technologies to build scalable
-          solutions. Whether it's crafting user-friendly interfaces or optimizing server-side
-          performance, my approach is always centered around innovation and excellence.`}
+          In my career, I have specialized in leveraging the latest web technologies to build
+          scalable solutions. Whether it is crafting user-friendly interfaces or optimizing
+          server-side performance, my approach is always centered around innovation and excellence.
         </span>
       </h1>
       <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
         <span className={`about-3 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
           My journey into technology began long before my professional career. The curiosity that
-          started it all still drives me today. Outside of coding, I’m constantly exploring new tech
-          trends, experimenting with emerging tools, and refining my skill set.
+          started it all still drives me today. Outside of coding, I am constantly exploring new
+          tech trends, experimenting with emerging tools, and refining my skill set.
         </span>
       </h1>
       <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
         <span className={`about-4 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          I’m always open to new opportunities and collaborations. If you’re looking to build
-          something amazing together, feel free to connect.
+          I am always open to new opportunities and collaborations. If you are looking to build
+          something amazing together, please feel free to connect.
         </span>
       </h1>
     </div>

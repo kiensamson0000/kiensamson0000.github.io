@@ -3,7 +3,11 @@ import Image from "next/image";
 import Button, { ButtonTypes } from "./button";
 import ContactSection from "../home/contact";
 
-const Footer = () => {
+interface FooterProps {
+  isDesktop: boolean;
+}
+
+const Footer = ({ isDesktop }: FooterProps) => {
   const renderSocialIcons = (): React.ReactNode => {
     return Object.keys(SOCIAL_LINKS).map((el: keyof typeof SOCIAL_LINKS) => (
       <a
@@ -35,7 +39,7 @@ const Footer = () => {
           }}
           href={SOCIAL_LINKS.linkedin}
         ></Button>
-        <ContactSection typeButton={ButtonTypes.WHITE} />
+        <ContactSection typeButton={ButtonTypes.WHITE} isDesktop={isDesktop} />
       </div>
       <h2 className="text-center text-sm sm:text-base mt-8">
         Designed and Developed with ❤️ by Kien Khuat

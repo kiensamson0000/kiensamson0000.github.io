@@ -24,10 +24,6 @@ const DEBOUNCE_TIME = 100;
 export const isSmallScreen = (): boolean => document.body.clientWidth < 767;
 export const NO_MOTION_PREFERENCE_QUERY = "(prefers-reduced-motion: no-preference)";
 
-export interface IDesktop {
-  isDesktop: boolean;
-}
-
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
@@ -71,14 +67,14 @@ export default function Home() {
         <Cursor isDesktop={isDesktop} />
         <main className="flex-col flex">
           {renderBackdrop()}
-          <HeroSection />
+          <HeroSection isDesktop={isDesktop} />
           <AboutSection />
           {/* <ProjectsSection isDesktop={isDesktop} /> */}
           <QuoteSection />
           <SkillsSection />
           {/* <TimelineSection isDesktop={isDesktop} /> */}
           <CollaborationSection />
-          <Footer />
+          <Footer isDesktop={isDesktop} />
         </main>
         <Scripts />
       </Layout>
