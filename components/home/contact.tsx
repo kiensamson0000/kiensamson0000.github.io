@@ -30,7 +30,7 @@ const ContactSection = ({ typeButton }: { typeButton: ButtonTypes }) => {
       <span
         className={`${isHovered || isCopied ? "opacity-0" : "opacity-100"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
       >
-        Let's talk
+        {`Let's talk`}
       </span>
       <span
         className={`${isHovered && !isCopied ? "opacity-100" : "opacity-0"} ${CONTACT_STYLE.BUTTON_EMAIL}`}
