@@ -64,9 +64,9 @@ const AboutSection = () => {
       </h1>
       <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
         <span className={`about-2 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          In my career, I’ve specialized in leveraging the latest web technologies to build scalable
+          {`In my career, I’ve specialized in leveraging the latest web technologies to build scalable
           solutions. Whether it's crafting user-friendly interfaces or optimizing server-side
-          performance, my approach is always centered around innovation and excellence.
+          performance, my approach is always centered around innovation and excellence.`}
         </span>
       </h1>
       <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
