@@ -42,7 +42,6 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/kiensamson0000",
   facebook: "https://www.facebook.com/kinn.khk",
   instagram: "https://www.instagram.com/kinn.koh.i.noor",
-  // twitter: "",
 };
 
 export interface IProject {
@@ -166,7 +165,19 @@ export const PROJECTS: IProject[] = [
   },
 ];
 
-export const SKILLS: any = {
+export interface ISkillDetail {
+  name: string;
+  icon: string;
+}
+
+interface ISkill {
+  frontend: ISkillDetail[];
+  backend: ISkillDetail[];
+  devops: ISkillDetail[];
+  developmentOperations: ISkillDetail[];
+}
+
+export const SKILLS: ISkill = {
   frontend: [
     {
       name: "JavaScript",
@@ -266,7 +277,7 @@ export const SKILLS: any = {
     //   icon: "skill-icons:python-light",
     // },
   ],
-  devops: [""],
+  devops: [],
   developmentOperations: [
     {
       name: "jest",

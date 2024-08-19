@@ -1,4 +1,4 @@
-import { MENULINKS, SKILLS } from "../../constants";
+import { ISkillDetail, MENULINKS, SKILLS } from "../../constants";
 import Image from "next/image";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { gsap, Linear } from "gsap";
@@ -61,20 +61,12 @@ const SkillsSection = () => {
     </>
   );
 
-  const renderSkillColumn = (title: string, skills: any[]): React.ReactNode => (
+  const renderSkillColumn = (title: string, skills: ISkillDetail[]): React.ReactNode => (
     <>
       <h3 className={SKILL_STYLES.SKILL_TITLE}>{title}</h3>
       <div className={`flex flex-wrap seq ${willChange ? "will-change-opacity" : ""}`}>
         {skills.map((skill) => (
-          // <Image
-          //   key={skill}
-          //   src={`/skills/${skill}.svg`}
-          //   alt={skill}
-          //   width={76}
-          //   height={76}
-          //   className="skill"
-          // />
-          <Icon key={skill} icon={skill.icon} className="text-5xl md:text-7xl skill" />
+          <Icon key={skill.name} icon={skill.icon} className="text-5xl md:text-7xl skill" />
         ))}
       </div>
     </>
