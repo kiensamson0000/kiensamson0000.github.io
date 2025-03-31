@@ -34,12 +34,15 @@ const ProjectTile = ({
   const renderTechIcons = (techStack: string[]): React.ReactNode => (
     <div
       className={`
-      ${styles.techIcons} w-1/2 h-full absolute left-24 top-0 sm:flex items-center hidden
+      ${styles.techIcons} w-1/2 h-full absolute left-6 top-[-0.5rem] sm:flex items-center hidden
     `}
     >
-      <div className="flex flex-col pb-8">
-        {techStack.map((tech, i) => (
-          <div className={`${i % 2 === 0 && "ml-16"} mb-4`} key={tech}>
+      <div className="flex flex-wrap justify-center mx-auto max-w-4xl">
+        {techStack.map((tech, index) => (
+          <div
+            key={index}
+            className="w-[5.5rem] h-[5.5rem] flex justify-center items-center rounded-lg shadow-sm"
+          >
             <Image
               src={`/projects/tech/${tech}.svg`}
               alt={tech}
@@ -63,7 +66,7 @@ const ProjectTile = ({
   );
 
   const renderProjectName = (name: string): React.ReactNode => (
-    <h1 className="text-2xl sm:text-3xl z-10 pl-2" style={{ transform: "translateZ(3rem)" }}>
+    <h1 className="text-2xl sm:text-[1.75rem] z-10 pl-2" style={{ transform: "translateZ(3rem)" }}>
       {name}
     </h1>
   );
@@ -98,7 +101,7 @@ const ProjectTile = ({
 
   return (
     <a
-      href={project.url}
+      // href={project.url}
       target="_blank"
       rel="noreferrer"
       className="link overflow-hidden rounded-3xl snap-start"

@@ -120,8 +120,9 @@ const ProjectsSection = ({ isDesktop }: ProjectSectionProps) => {
       <p className="section-title-sm seq">PROJECTS</p>
       <h1 className="section-heading seq mt-2">My Works</h1>
       <h2 className="text-2xl md:max-w-3xl w-full seq max-w-sm mt-2">
-        I have contributed to 20+ projects in Frontend and Backend development, UI/UX design, and
-        Open Source, delivering scalable, user-focused solutions.
+        As a Full-Stack Software Engineer, I architect scalable solutions by fusing intuitive UI/UX
+        design with resilient backend systems, turning complex challenges into measurable business
+        impact.
       </h2>
     </div>
   );

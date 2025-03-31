@@ -55,28 +55,27 @@ const AboutSection = () => {
 
   const renderQuotes = (): React.ReactNode => (
     <div ref={quoteRef}>
-      <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl">
+      <h1 className="font-medium text-[1.75rem] sm:text-4xl md:text-[2.5rem]">
         <span className={`about-1 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          With a solid foundation in both front-end and back-end technologies, I bring over two
-          years of hands-on experience to every project. My passion is to create seamless, dynamic
-          web applications that exceed user expectations.
+          Full-Stack Software Engineer with 2.5 years of experience, combining 2.5 years of
+          expertise in developing engaging, user-centric front-end solutions with 1 year of
+          experience in building robust back-end systems.
         </span>
       </h1>
-      <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
+      <h1 className="font-medium text-[1.75rem] sm:text-4xl md:text-[2.5rem] mt-2">
         <span className={`about-2 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          In my career, I have specialized in leveraging the latest web technologies to build
-          scalable solutions. Whether it is crafting user-friendly interfaces or optimizing
-          server-side performance, my approach is always centered around innovation and excellence.
+          Proficient in leveraging modern frameworks and tools to build scalable, high-performance
+          web applications that optimize user experiences and business goals.
         </span>
       </h1>
-      <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
+      <h1 className="font-medium text-[1.75rem] sm:text-4xl md:text-[2.5rem] mt-2">
         <span className={`about-3 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          My journey into technology began long before my professional career. The curiosity that
-          started it all still drives me today. Outside of coding, I am constantly exploring new
-          tech trends, experimenting with emerging tools, and refining my skill set.
+          Experienced in agile methodologies, skilled in collaborative problem-solving, and with a
+          proven ability to rapidly adapt to new technologies, I consistently deliver high-quality
+          solutions.
         </span>
       </h1>
-      <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mt-2">
+      <h1 className="font-medium text-[1.75rem] sm:text-4xl md:text-[2.5rem] mt-2">
         <span className={`about-4 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
           I am always open to new opportunities and collaborations. If you are looking to build
           something amazing together, please feel free to connect.
