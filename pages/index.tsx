@@ -70,12 +70,9 @@ export default function Home() {
           <HeroSection isDesktop={isDesktop} />
           <AboutSection />
           <ProjectsSection isDesktop={isDesktop} />
-          <div>
-            <span>Khuat huy kien</span>
-          </div>
           <QuoteSection />
           <SkillsSection />
-          {/* <TimelineSection isDesktop={isDesktop} /> */}
+          <TimelineSection isDesktop={isDesktop} />
           <CollaborationSection />
           <Footer isDesktop={isDesktop} />
         </main>

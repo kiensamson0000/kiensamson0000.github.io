@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 
 const SKILL_STYLES = {
   SECTION: "w-full relative select-none mb-24 section-container py-12 flex flex-col justify-center",
-  SKILL_TITLE: "section-title-sm mb-4 seq",
+  SKILL_TITLE: "section-title-sm sm:text-lg mb-[0.275rem] seq",
 };
 
 const SkillsSection = () => {
@@ -42,10 +42,10 @@ const SkillsSection = () => {
     <div className="flex flex-col">
       <p className="section-title-sm seq">SKILLS</p>
       <h1 className="section-heading seq mt-2">My Skills</h1>
-      <h2 className="text-2xl md:max-w-2xl w-full seq mt-2">
-        Proficient in crafting and optimizing web applications, with a strong focus on both frontend
-        design and backend solutions, coupled with a flexible and innovative approach to solving
-        complex challenges.
+      <h2 className="text-2xl md:max-w-[50rem] w-full seq mt-2">
+        A highly skilled full-stack developer with expertise in crafting efficient and scalable web
+        applications. I bring a strong foundation in both dynamic front-end development and robust
+        back-end architecture.
       </h2>
     </div>
   );
@@ -66,7 +66,25 @@ const SkillsSection = () => {
       <h3 className={SKILL_STYLES.SKILL_TITLE}>{title}</h3>
       <div className={`flex flex-wrap seq ${willChange ? "will-change-opacity" : ""}`}>
         {skills.map((skill) => (
-          <Icon key={skill.name} icon={skill.icon} className="text-5xl md:text-7xl skill" />
+          <>
+            {skill.icon.includes("icon-custom-") && (
+              <Image
+                src={`/projects/tech/${skill.icon}.svg`}
+                alt={skill.icon}
+                width={67}
+                height={67}
+                className="skill w-16 h-16 md:w-[72px] md:h-[72px]"
+                objectFit="contain"
+              />
+            )}
+            {!skill.icon.includes("icon-custom:") && (
+              <Icon
+                key={skill.name}
+                icon={skill.icon}
+                className="w-16 h-16 md:w-[72px] md:h-[72px] skill"
+              />
+            )}
+          </>
         ))}
       </div>
     </>
@@ -78,10 +96,17 @@ const SkillsSection = () => {
       <div className={SKILL_STYLES.SECTION} id={MENULINKS[2].ref} ref={targetSection}>
         <div className="flex flex-col skills-wrapper">
           {renderSectionTitle()}
-          <div className="mt-8">{renderSkillColumn("FRONTEND DEVELOPMENT", SKILLS.frontend)}</div>
-          <div className="mt-4">{renderSkillColumn("BACKEND DEVELOPMENT", SKILLS.backend)}</div>
-          <div className="mt-4">
-            {renderSkillColumn("DEVELOPMENT & OPERATIONS", SKILLS.developmentOperations)}
+          <div className="mt-8 sm:mt-10">
+            {renderSkillColumn("PROGRAMMING LANGUAGES", SKILLS.programmingLanguages)}
+          </div>
+          <div className="mt-3 sm:mt-5">
+            {renderSkillColumn("FRAMEWORKS/PLATFORMS", SKILLS.frameworkOrPlatforms)}
+          </div>
+          <div className="flex flex-wrap mt-3 sm:mt-5">
+            <div className="mr-6 mb-3">
+              {renderSkillColumn("DATABASE MANAGEMENT SYSTEMS", SKILLS.database)}
+            </div>
+            <div>{renderSkillColumn("OTHERS", SKILLS.others)}</div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ import { NO_MOTION_PREFERENCE_QUERY } from "pages";
 const PROJECT_STYLES = {
   SECTION: "w-full relative select-none section-container flex-col flex py-8 justify-center",
   PROJECTS_WRAPPER:
-    "tall:mt-12 mt-6 grid grid-flow-col auto-cols-max md:gap-10 gap-6 project-wrapper w-fit seq snap-x scroll-pl-6 snap-mandatory",
+    "tall:mt-10 mt-6 grid grid-flow-col auto-cols-max md:gap-10 gap-6 project-wrapper w-fit seq snap-x scroll-pl-6 snap-mandatory",
 };
 
 interface ProjectSectionProps {

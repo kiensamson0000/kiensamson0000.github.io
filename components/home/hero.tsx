@@ -13,7 +13,7 @@ const HERO_STYLES = {
   SOCIAL_LINK: "link hover:opacity-80 duration-300 md:mr-4 mr-2",
   BG_WRAPPER:
     "absolute hero-bg right-0 md:bottom-0 bottom-8 -z-1 md:w-3/4 w-full scale-125 sm:scale-100 flex items-end",
-  TYPED_SPAN: "text-[1.375rem] sm:text-2xl md:text-4xl seq",
+  TYPED_SPAN: "text-[1.375rem] sm:text-3xl md:text-[2rem] seq",
 };
 
 interface HeroSectionProps {
@@ -76,7 +76,7 @@ const HeroSection = React.memo(({ isDesktop }: HeroSectionProps) => {
     <div className={HERO_STYLES.CONTENT}>
       <div className="md:mb-4 mb-2">
         <h2 className="text-3xl sm:text-4xl seq">{`Hello, I am Kien Khuat`}👋🏻</h2>
-        <h2 className="text-[1.75rem] sm:text-4xl">Full-Stack Software Engineer</h2>
+        <h2 className="text-[1.75rem] sm:text-4xl seq">Full-Stack Software Engineer</h2>
       </div>
       <p className="mb-4">
         <span className={HERO_STYLES.TYPED_SPAN} ref={typedSpanElement}></span>

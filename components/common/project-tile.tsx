@@ -37,11 +37,11 @@ const ProjectTile = ({
       ${styles.techIcons} w-1/2 h-full absolute left-6 top-[-0.5rem] sm:flex items-center hidden
     `}
     >
-      <div className="flex flex-wrap justify-center mx-auto max-w-4xl">
+      <div className="flex flex-wrap justify-center mx-auto max-w-4xl px-7">
         {techStack.map((tech, index) => (
           <div
             key={index}
-            className="w-[5.5rem] h-[5.5rem] flex justify-center items-center rounded-lg shadow-sm"
+            className="w-[4.25rem] h-[4.25rem] flex justify-center items-center rounded-lg shadow-md"
           >
             <Image
               src={`/projects/tech/${tech}.svg`}

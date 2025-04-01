@@ -15,7 +15,7 @@ const QuoteSection = () => {
     const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
     timeline
       .from(quoteRef.current, { opacity: 0, duration: 2 })
-      .to(quoteRef.current.querySelector(".text-strong"), {
+      .to(quoteRef.current.querySelectorAll(".text-strong"), {
         backgroundPositionX: "100%",
         duration: 1,
       });
@@ -44,8 +44,10 @@ const QuoteSection = () => {
           willChange ? "will-change-opacity" : ""
         }`}
       >
-        I have a <span className="text-strong font-bold">strong</span> obsession for attention to
-        detail.
+        Building
+        <span className="text-strong font-bold"> scalable</span> and
+        <span className="text-strong font-bold"> efficient</span> solutions that drive impact
+        <span className="text-strong font-bold"> impact</span>.
       </h1>
     </div>
   );

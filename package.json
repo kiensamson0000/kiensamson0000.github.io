@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@iconify/react": "^5.0.2",
-    "gsap": "^3.12.5",
+    "@types/gsap": "^3.0.0",
+    "gsap": "^3.12.7",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",

@@ -93,11 +93,12 @@ const CollaborationSection = () => {
 
   return (
     <section className={COLLABORATION_STYLE.SECTION} ref={targetSection}>
-      {renderSlidingText(" User Interface Design  Creative Problem Solver ", "ui-left")}
-
+      {renderSlidingText(" Full-Stack Expertise Proven Results Modern Tech Stack ", "ui-left")}
       {renderTitle()}
-
-      {renderSlidingText(" Software Engineer  Web Developer ", "mt-6 md:mt-8 ui-right")}
+      {renderSlidingText(
+        " Impactful Scalable Efficient Solutions Innovative ",
+        "mt-6 md:mt-8 ui-right"
+      )}
     </section>
   );
 };
