@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { isSmallScreen, NO_MOTION_PREFERENCE_QUERY } from "pages";
 
 const COLLABORATION_STYLE = {
-  SLIDING_TEXT: "opacity-20 text-4xl md:text-7xl font-bold whitespace-nowrap",
+  SLIDING_TEXT: "opacity-20 text-5xl md:text-7xl font-bold whitespace-nowrap",
   SECTION: "w-full relative select-none tall:py-36 py-48 section-container flex flex-col",
   TITLE: "mt-6 md:mt-8 font-medium text-4xl md:text-5xl text-center",
 };
@@ -21,14 +21,14 @@ const CollaborationSection = () => {
     const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
     timeline
       .from(quoteRef.current, { opacity: 0, duration: 2 })
-      .to(quoteRef.current.querySelector(".text-strong"), {
+      .to(quoteRef.current.querySelector(".collaboration-keyword"), {
         backgroundPositionX: "100%",
         duration: 1,
       });
 
     return ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "center bottom",
+      start: "top bottom",
       end: "center center",
       scrub: 0,
       animation: timeline,
@@ -59,20 +59,38 @@ const CollaborationSection = () => {
   };
 
   useEffect(() => {
-    const textBgAnimation = initTextGradientAnimation(targetSection);
-    let slidingAnimation: ScrollTrigger | undefined;
+    const ctx = gsap.context(() => {
+      initTextGradientAnimation(targetSection);
+      let slidingAnimation: ScrollTrigger | undefined;
+      const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
 
-    const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-
-    if (matches) {
-      slidingAnimation = initSlidingTextAnimation(targetSection);
-    }
-
+      if (matches) {
+        slidingAnimation = initSlidingTextAnimation(targetSection);
+      }
+    }, targetSection);
     return () => {
-      textBgAnimation.kill();
-      slidingAnimation?.kill();
+      ctx.revert();
+      // ctx.kill();
     };
   }, [quoteRef, targetSection]);
+
+  // useEffect(() => {
+  //   const textBgAnimation = initTextGradientAnimation(targetSection);
+
+  //   let slidingAnimation: ScrollTrigger | undefined;
+
+  //   const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+
+  //   if (matches) {
+  //     slidingAnimation = initSlidingTextAnimation(targetSection);
+  //   }
+
+  //   return () => {
+  //     textBgAnimation.kill();
+
+  //     slidingAnimation?.kill();
+  //   };
+  // }, [quoteRef, targetSection]);
 
   const renderSlidingText = (text: string, layoutClasses: string) => (
     <p className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>
@@ -87,7 +105,8 @@ const CollaborationSection = () => {
       ref={quoteRef}
       className={`${COLLABORATION_STYLE.TITLE} ${willChange ? "will-change-opacity" : ""}`}
     >
-      Interested in <span className="text-strong font-bold">Collaboration</span>?
+      Interested in
+      <span className="text-strong collaboration-keyword font-bold"> Collaboration</span>?
     </h1>
   );
 

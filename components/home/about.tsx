@@ -38,7 +38,7 @@ const AboutSection = () => {
       });
     const scrollTriggerInstance = ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "center 80%",
+      start: "center 85%",
       end: "center top",
       scrub: 0,
       animation: timeline,
@@ -47,10 +47,22 @@ const AboutSection = () => {
     return scrollTriggerInstance;
   };
 
-  useEffect(() => {
-    const aboutScrollTriggerInstance = initAboutAnimation(quoteRef, targetSection);
+  // useEffect(() => {
+  //   const aboutScrollTriggerInstance = initAboutAnimation(quoteRef, targetSection);
 
-    return aboutScrollTriggerInstance.kill;
+  //   return () => {
+  //     aboutScrollTriggerInstance?.kill;
+  //   };
+  // }, [quoteRef, targetSection]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      initAboutAnimation(quoteRef, targetSection);
+    }, targetSection);
+    return () => {
+      ctx.revert();
+      // ctx.kill();
+    };
   }, [quoteRef, targetSection]);
 
   const renderQuotes = (): React.ReactNode => (

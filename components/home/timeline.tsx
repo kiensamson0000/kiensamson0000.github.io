@@ -412,15 +412,42 @@ const TimelineSection = ({ isDesktop }: TimelineSectionProps) => {
     return { timeline, duration };
   };
 
+  // useEffect(() => {
+  //   // Generate and set the timeline svg
+  //   setTimelineSvg(svgContainer, timelineSvg);
+
+  //   const { timeline, duration }: { timeline: GSAPTimeline; duration: number } =
+  //     initScrollTrigger();
+
+  //   // Animation for Timeline SVG
+  //   animateTimeline(timeline, duration);
+  // }, [
+  //   timelineSvg,
+  //   svgContainer,
+  //   svgWidth,
+  //   rightBranchX,
+  //   screenContainer,
+  //   svgCheckpointItems.length,
+  //   isDesktop,
+  //   svgLength,
+  // ]);
+
   useEffect(() => {
     // Generate and set the timeline svg
     setTimelineSvg(svgContainer, timelineSvg);
 
-    const { timeline, duration }: { timeline: GSAPTimeline; duration: number } =
-      initScrollTrigger();
+    const ctx = gsap.context(() => {
+      const { timeline, duration }: { timeline: GSAPTimeline; duration: number } =
+        initScrollTrigger();
+      // Animation for Timeline SVG
+      animateTimeline(timeline, duration);
+    });
 
-    // Animation for Timeline SVG
-    animateTimeline(timeline, duration);
+    return () => {
+      ctx.revert();
+      // ctx.kill();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     timelineSvg,
     svgContainer,

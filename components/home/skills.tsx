@@ -32,10 +32,20 @@ const SkillsSection = () => {
     });
   };
 
-  useEffect(() => {
-    const revealAnimationRef = initRevealAnimation(targetSection);
+  // useEffect(() => {
+  //   const revealAnimationRef = initRevealAnimation(targetSection);
 
-    return revealAnimationRef.kill;
+  //   return revealAnimationRef.kill;
+  // }, [targetSection]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      initRevealAnimation(targetSection);
+    }, targetSection);
+    return () => {
+      ctx.revert();
+      // ctx.kill();
+    };
   }, [targetSection]);
 
   const renderSectionTitle = (): React.ReactNode => (

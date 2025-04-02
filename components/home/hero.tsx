@@ -37,6 +37,22 @@ const HeroSection = React.memo(({ isDesktop }: HeroSectionProps) => {
     return revealTl;
   };
 
+  // useEffect(() => {
+  //   const typed = new Typed(typedSpanElement.current, {
+  //     strings: TYPED_STRINGS,
+  //     typeSpeed: 50,
+  //     backSpeed: 50,
+  //     backDelay: 8000,
+  //     loop: true,
+  //   });
+
+  //   initRevealAnimation(targetSection);
+
+  //   return () => {
+  //     typed.destroy();
+  //   };
+  // }, [typedSpanElement, targetSection]);
+
   useEffect(() => {
     const typed = new Typed(typedSpanElement.current, {
       strings: TYPED_STRINGS,
@@ -45,11 +61,13 @@ const HeroSection = React.memo(({ isDesktop }: HeroSectionProps) => {
       backDelay: 8000,
       loop: true,
     });
-
-    initRevealAnimation(targetSection);
-
+    const ctx = gsap.context(() => {
+      initRevealAnimation(targetSection);
+    }, targetSection);
     return () => {
       typed.destroy();
+      ctx.revert();
+      // ctx.kill();
     };
   }, [typedSpanElement, targetSection]);
 

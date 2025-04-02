@@ -15,7 +15,7 @@ const QuoteSection = () => {
     const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
     timeline
       .from(quoteRef.current, { opacity: 0, duration: 2 })
-      .to(quoteRef.current.querySelectorAll(".text-strong"), {
+      .to(quoteRef.current.querySelectorAll(".quote-keyword"), {
         backgroundPositionX: "100%",
         duration: 1,
       });
@@ -30,10 +30,20 @@ const QuoteSection = () => {
     });
   };
 
-  useEffect(() => {
-    const quoteAnimationRef = initQuoteAnimation(quoteRef, targetSection);
+  // useEffect(() => {
+  //   const quoteAnimationRef = initQuoteAnimation(quoteRef, targetSection);
 
-    return quoteAnimationRef.kill;
+  //   return quoteAnimationRef.kill;
+  // }, [quoteRef, targetSection]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      initQuoteAnimation(quoteRef, targetSection);
+    }, targetSection);
+    return () => {
+      ctx.revert();
+      // ctx.kill();
+    };
   }, [quoteRef, targetSection]);
 
   const renderQuote = (): React.ReactNode => (
@@ -45,9 +55,9 @@ const QuoteSection = () => {
         }`}
       >
         Building
-        <span className="text-strong font-bold"> scalable</span> and
-        <span className="text-strong font-bold"> efficient</span> solutions that drive impact
-        <span className="text-strong font-bold"> impact</span>.
+        <span className="text-strong quote-keyword font-bold"> scalable </span>and
+        <span className="text-strong quote-keyword font-bold"> efficient </span>solutions that drive
+        <span className="text-strong quote-keyword font-bold"> impact</span>.
       </h1>
     </div>
   );
