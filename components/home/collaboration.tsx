@@ -1,11 +1,10 @@
 import { gsap, Linear } from "gsap";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import { isSmallScreen, NO_MOTION_PREFERENCE_QUERY } from "pages";
-import { NO_MOTION_PREFERENCE_QUERY } from "pages";
+import { isSmallScreen, NO_MOTION_PREFERENCE_QUERY } from "pages";
 
 const COLLABORATION_STYLE = {
-  SLIDING_TEXT: "opacity-20 text-[2.75rem] md:text-7xl font-bold whitespace-nowrap",
+  SLIDING_TEXT: "opacity-20 text-4xl md:text-7xl font-bold whitespace-nowrap",
   SECTION: "w-full relative select-none tall:py-36 py-48 section-container flex flex-col",
   TITLE: "mt-6 md:mt-8 font-medium text-4xl md:text-5xl text-center",
 };
@@ -13,13 +12,8 @@ const COLLABORATION_STYLE = {
 const CollaborationSection = () => {
   const quoteRef: MutableRefObject<HTMLDivElement> = useRef(null);
   const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
-  const slidingAnimation = useRef<ScrollTrigger | null>(null);
+
   const [willChange, setwillChange] = useState(false);
-  const isMobile = useRef(false);
-  const ctx = useRef<gsap.Context>();
-  const isSmallScreen = () => {
-    isMobile.current = window.innerWidth < 768; // Hoặc giá trị breakpoint của bạn
-  };
 
   const initTextGradientAnimation = (): ScrollTrigger => {
     const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
@@ -32,7 +26,7 @@ const CollaborationSection = () => {
 
     return ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "top bottom",
+      start: "center bottom",
       end: "center center",
       scrub: 0,
       animation: timeline,
@@ -42,12 +36,16 @@ const CollaborationSection = () => {
 
   const initSlidingTextAnimation = () => {
     const slidingTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-    const xPercent = isMobile.current ? -300 : -150;
+
     slidingTl
       .to(targetSection.current.querySelector(".ui-left"), {
-        xPercent,
+        xPercent: isSmallScreen() ? -500 : -150,
       })
-      .from(targetSection.current.querySelector(".ui-right"), { xPercent }, "<");
+      .from(
+        targetSection.current.querySelector(".ui-right"),
+        { xPercent: isSmallScreen() ? -500 : -150 },
+        "<"
+      );
 
     return ScrollTrigger.create({
       trigger: targetSection.current,
@@ -59,97 +57,20 @@ const CollaborationSection = () => {
   };
 
   useEffect(() => {
-    isSmallScreen(); // Khởi tạo giá trị ban đầu
-    ctx.current = gsap.context(() => {
-      // Animation chính
-      const textBgAnimation = initTextGradientAnimation();
+    const textBgAnimation = initTextGradientAnimation();
+    let slidingAnimation: ScrollTrigger | undefined;
 
-      // Xử lý motion preference
-      const mediaQuery = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-      let slidingAnimation: ScrollTrigger | undefined;
+    const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
 
-      const initAnimations = () => {
-        slidingAnimation?.kill();
-        if (mediaQuery.matches) {
-          slidingAnimation = initSlidingTextAnimation();
-        }
-      };
+    if (matches) {
+      slidingAnimation = initSlidingTextAnimation();
+    }
 
-      // Xử lý resize
-      const onResize = () => {
-        isSmallScreen();
-        ScrollTrigger.refresh(); // Quan trọng: refresh ScrollTrigger
-        initAnimations();
-      };
-
-      // Lắng nghe sự kiện
-      window.addEventListener("resize", onResize);
-      mediaQuery.addEventListener("change", initAnimations);
-
-      // Khởi chạy lần đầu
-      initAnimations();
-
-      return () => {
-        window.removeEventListener("resize", onResize);
-        mediaQuery.removeEventListener("change", initAnimations);
-        textBgAnimation.kill();
-        slidingAnimation?.kill();
-      };
-    }, targetSection);
-
-    return () => ctx.current?.revert();
+    return () => {
+      textBgAnimation.kill();
+      slidingAnimation?.kill();
+    };
   }, []);
-
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     const textBgAnimation = initTextGradientAnimation(targetSection);
-  //     // Xử lý media query động
-  //     const mediaQuery = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-  //     const updateAnimations = (): void => {
-  //       if (mediaQuery.matches) {
-  //         slidingAnimation.current?.kill();
-  //         slidingAnimation.current = initSlidingTextAnimation(targetSection);
-  //       } else {
-  //         slidingAnimation.current?.kill();
-  //       }
-  //     };
-  //     mediaQuery.addEventListener("change", updateAnimations);
-  //     updateAnimations(); // Khởi tạo ban đầu
-  //     const onResize = () => {
-  //       slidingAnimation.current?.kill();
-  //       if (mediaQuery.matches) {
-  //         slidingAnimation.current = initSlidingTextAnimation(targetSection);
-  //       }
-  //     };
-  //     window.addEventListener("resize", onResize);
-  //     return () => {
-  //       mediaQuery.removeEventListener("change", updateAnimations);
-  //       window.removeEventListener("resize", onResize);
-  //       textBgAnimation.kill();
-  //       slidingAnimation.current?.kill();
-  //     };
-  //   }, targetSection);
-
-  //   return () => ctx.revert();
-  // }, []);
-
-  // useEffect(() => {
-  //   const textBgAnimation = initTextGradientAnimation(targetSection);
-
-  //   let slidingAnimation: ScrollTrigger | undefined;
-
-  //   const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-
-  //   if (matches) {
-  //     slidingAnimation = initSlidingTextAnimation(targetSection);
-  //   }
-
-  //   return () => {
-  //     textBgAnimation.kill();
-
-  //     slidingAnimation?.kill();
-  //   };
-  // }, [quoteRef, targetSection]);
 
   const renderSlidingText = (text: string, layoutClasses: string) => (
     <p className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>

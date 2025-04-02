@@ -21,7 +21,9 @@ import AboutSection from "@/components/home/about";
 
 const DEBOUNCE_TIME = 100;
 
-export const isSmallScreen = (): boolean => document.body.clientWidth < 768;
+// export const isSmallScreen = (): boolean => window?.innerWidth < 768;
+export const isSmallScreen = () => typeof window !== "undefined" && window.innerWidth < 768;
+
 export const NO_MOTION_PREFERENCE_QUERY = "(prefers-reduced-motion: no-preference)";
 
 export default function Home() {
