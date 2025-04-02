@@ -89,14 +89,16 @@ const ProjectTile = ({
   );
 
   const renderProjectImage = (image: string, blurImage: string, name: string): React.ReactNode => (
-    <Image
-      placeholder="blur"
-      blurDataURL={blurImage}
-      src={image}
-      alt={name}
-      layout="fill"
-      className={`${styles.ProjectImg} z-0`}
-    />
+    <span className={`${styles.ImageFrame}`}>
+      <Image
+        placeholder="blur"
+        blurDataURL={blurImage}
+        src={image}
+        alt={name}
+        layout="fill"
+        className={`${styles.ProjectImg} z-0`}
+      />
+    </span>
   );
 
   return (

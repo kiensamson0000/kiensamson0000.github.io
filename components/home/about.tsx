@@ -38,7 +38,7 @@ const AboutSection = () => {
       });
     const scrollTriggerInstance = ScrollTrigger.create({
       trigger: targetSection.current,
-      start: "center 85%",
+      start: "center 90%",
       end: "center top",
       scrub: 0,
       animation: timeline,
