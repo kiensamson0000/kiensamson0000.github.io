@@ -1,7 +1,8 @@
 import { gsap, Linear } from "gsap";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { isSmallScreen, NO_MOTION_PREFERENCE_QUERY } from "pages";
+// import { isSmallScreen, NO_MOTION_PREFERENCE_QUERY } from "pages";
+import { NO_MOTION_PREFERENCE_QUERY } from "pages";
 
 const COLLABORATION_STYLE = {
   SLIDING_TEXT: "opacity-20 text-[2.75rem] md:text-7xl font-bold whitespace-nowrap",
@@ -14,10 +15,13 @@ const CollaborationSection = () => {
   const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
   const slidingAnimation = useRef<ScrollTrigger | null>(null);
   const [willChange, setwillChange] = useState(false);
+  const isMobile = useRef(false);
+  const ctx = useRef<gsap.Context>();
+  const isSmallScreen = () => {
+    isMobile.current = window.innerWidth < 768; // Hoặc giá trị breakpoint của bạn
+  };
 
-  const initTextGradientAnimation = (
-    targetSection: MutableRefObject<HTMLDivElement>
-  ): ScrollTrigger => {
+  const initTextGradientAnimation = (): ScrollTrigger => {
     const timeline = gsap.timeline({ defaults: { ease: Linear.easeNone } });
     timeline
       .from(quoteRef.current, { opacity: 0, duration: 2 })
@@ -36,18 +40,14 @@ const CollaborationSection = () => {
     });
   };
 
-  const initSlidingTextAnimation = (targetSection: MutableRefObject<HTMLDivElement>) => {
+  const initSlidingTextAnimation = () => {
     const slidingTl = gsap.timeline({ defaults: { ease: Linear.easeNone } });
-
+    const xPercent = isMobile.current ? -300 : -150;
     slidingTl
       .to(targetSection.current.querySelector(".ui-left"), {
-        xPercent: isSmallScreen() ? -500 : -150,
+        xPercent,
       })
-      .from(
-        targetSection.current.querySelector(".ui-right"),
-        { xPercent: isSmallScreen() ? -500 : -150 },
-        "<"
-      );
+      .from(targetSection.current.querySelector(".ui-right"), { xPercent }, "<");
 
     return ScrollTrigger.create({
       trigger: targetSection.current,
@@ -57,6 +57,48 @@ const CollaborationSection = () => {
       animation: slidingTl,
     });
   };
+
+  useEffect(() => {
+    isSmallScreen(); // Khởi tạo giá trị ban đầu
+    ctx.current = gsap.context(() => {
+      // Animation chính
+      const textBgAnimation = initTextGradientAnimation();
+
+      // Xử lý motion preference
+      const mediaQuery = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+      let slidingAnimation: ScrollTrigger | undefined;
+
+      const initAnimations = () => {
+        slidingAnimation?.kill();
+        if (mediaQuery.matches) {
+          slidingAnimation = initSlidingTextAnimation();
+        }
+      };
+
+      // Xử lý resize
+      const onResize = () => {
+        isSmallScreen();
+        ScrollTrigger.refresh(); // Quan trọng: refresh ScrollTrigger
+        initAnimations();
+      };
+
+      // Lắng nghe sự kiện
+      window.addEventListener("resize", onResize);
+      mediaQuery.addEventListener("change", initAnimations);
+
+      // Khởi chạy lần đầu
+      initAnimations();
+
+      return () => {
+        window.removeEventListener("resize", onResize);
+        mediaQuery.removeEventListener("change", initAnimations);
+        textBgAnimation.kill();
+        slidingAnimation?.kill();
+      };
+    }, targetSection);
+
+    return () => ctx.current?.revert();
+  }, []);
 
   // useEffect(() => {
   //   const ctx = gsap.context(() => {
@@ -91,23 +133,23 @@ const CollaborationSection = () => {
   //   return () => ctx.revert();
   // }, []);
 
-  useEffect(() => {
-    const textBgAnimation = initTextGradientAnimation(targetSection);
+  // useEffect(() => {
+  //   const textBgAnimation = initTextGradientAnimation(targetSection);
 
-    let slidingAnimation: ScrollTrigger | undefined;
+  //   let slidingAnimation: ScrollTrigger | undefined;
 
-    const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+  //   const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
 
-    if (matches) {
-      slidingAnimation = initSlidingTextAnimation(targetSection);
-    }
+  //   if (matches) {
+  //     slidingAnimation = initSlidingTextAnimation(targetSection);
+  //   }
 
-    return () => {
-      textBgAnimation.kill();
+  //   return () => {
+  //     textBgAnimation.kill();
 
-      slidingAnimation?.kill();
-    };
-  }, [quoteRef, targetSection]);
+  //     slidingAnimation?.kill();
+  //   };
+  // }, [quoteRef, targetSection]);
 
   const renderSlidingText = (text: string, layoutClasses: string) => (
     <p className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>
