@@ -61,16 +61,15 @@ const CollaborationSection = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       initTextGradientAnimation(targetSection);
-      let slidingAnimation: ScrollTrigger | undefined;
       const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
 
       if (matches) {
-        slidingAnimation = initSlidingTextAnimation(targetSection);
+        initSlidingTextAnimation(targetSection);
       }
     }, targetSection);
     return () => {
-      ctx.revert();
-      // ctx.kill();
+      // ctx.revert();
+      ctx.kill();
     };
   }, [quoteRef, targetSection]);
 
