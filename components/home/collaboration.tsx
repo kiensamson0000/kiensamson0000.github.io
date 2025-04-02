@@ -12,7 +12,7 @@ const COLLABORATION_STYLE = {
 const CollaborationSection = () => {
   const quoteRef: MutableRefObject<HTMLDivElement> = useRef(null);
   const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
-
+  const slidingAnimation = useRef<ScrollTrigger | null>(null);
   const [willChange, setwillChange] = useState(false);
 
   const initTextGradientAnimation = (
@@ -58,41 +58,59 @@ const CollaborationSection = () => {
     });
   };
 
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     initTextGradientAnimation(targetSection);
-  //     const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const textBgAnimation = initTextGradientAnimation(targetSection);
+      // Xử lý media query động
+      const mediaQuery = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+      const updateAnimations = (): void => {
+        if (mediaQuery.matches) {
+          slidingAnimation.current?.kill();
+          slidingAnimation.current = initSlidingTextAnimation(targetSection);
+        } else {
+          slidingAnimation.current?.kill();
+        }
+      };
+      mediaQuery.addEventListener("change", updateAnimations);
+      updateAnimations(); // Khởi tạo ban đầu
+      const onResize = () => {
+        slidingAnimation.current?.kill();
+        if (mediaQuery.matches) {
+          slidingAnimation.current = initSlidingTextAnimation(targetSection);
+        }
+      };
+      window.addEventListener("resize", onResize);
+      return () => {
+        mediaQuery.removeEventListener("change", updateAnimations);
+        window.removeEventListener("resize", onResize);
+        textBgAnimation.kill();
+        slidingAnimation.current?.kill();
+      };
+    }, targetSection);
 
-  //     if (matches) {
-  //       initSlidingTextAnimation(targetSection);
-  //     }
-  //   }, targetSection);
+    return () => ctx.revert();
+  }, []);
+
+  // useEffect(() => {
+  //   const textBgAnimation = initTextGradientAnimation(targetSection);
+
+  //   let slidingAnimation: ScrollTrigger | undefined;
+
+  //   const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+
+  //   if (matches) {
+  //     slidingAnimation = initSlidingTextAnimation(targetSection);
+  //   }
+
   //   return () => {
-  //     // ctx.revert();
-  //     ctx.kill();
+  //     textBgAnimation.kill();
+
+  //     slidingAnimation?.kill();
   //   };
   // }, [quoteRef, targetSection]);
 
-  useEffect(() => {
-    const textBgAnimation = initTextGradientAnimation(targetSection);
-
-    let slidingAnimation: ScrollTrigger | undefined;
-
-    const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-
-    if (matches) {
-      slidingAnimation = initSlidingTextAnimation(targetSection);
-    }
-
-    return () => {
-      textBgAnimation.kill();
-
-      slidingAnimation?.kill();
-    };
-  }, [quoteRef, targetSection]);
-
   const renderSlidingText = (text: string, layoutClasses: string) => (
-    <p className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>
+    <p aria-hidden="true" className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>
       {Array(5)
         .fill(text)
         .reduce((str, el) => str.concat(el), "")}
