@@ -58,38 +58,38 @@ const CollaborationSection = () => {
     });
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      initTextGradientAnimation(targetSection);
-      const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-
-      if (matches) {
-        initSlidingTextAnimation(targetSection);
-      }
-    }, targetSection);
-    return () => {
-      // ctx.revert();
-      ctx.kill();
-    };
-  }, [quoteRef, targetSection]);
-
   // useEffect(() => {
-  //   const textBgAnimation = initTextGradientAnimation(targetSection);
+  //   const ctx = gsap.context(() => {
+  //     initTextGradientAnimation(targetSection);
+  //     const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
 
-  //   let slidingAnimation: ScrollTrigger | undefined;
-
-  //   const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-
-  //   if (matches) {
-  //     slidingAnimation = initSlidingTextAnimation(targetSection);
-  //   }
-
+  //     if (matches) {
+  //       initSlidingTextAnimation(targetSection);
+  //     }
+  //   }, targetSection);
   //   return () => {
-  //     textBgAnimation.kill();
-
-  //     slidingAnimation?.kill();
+  //     // ctx.revert();
+  //     ctx.kill();
   //   };
   // }, [quoteRef, targetSection]);
+
+  useEffect(() => {
+    const textBgAnimation = initTextGradientAnimation(targetSection);
+
+    let slidingAnimation: ScrollTrigger | undefined;
+
+    const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+
+    if (matches) {
+      slidingAnimation = initSlidingTextAnimation(targetSection);
+    }
+
+    return () => {
+      textBgAnimation.kill();
+
+      slidingAnimation?.kill();
+    };
+  }, [quoteRef, targetSection]);
 
   const renderSlidingText = (text: string, layoutClasses: string) => (
     <p className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>
