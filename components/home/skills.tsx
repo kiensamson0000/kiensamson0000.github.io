@@ -32,21 +32,21 @@ const SkillsSection = () => {
     });
   };
 
-  // useEffect(() => {
-  //   const revealAnimationRef = initRevealAnimation(targetSection);
-
-  //   return revealAnimationRef.kill;
-  // }, [targetSection]);
-
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      initRevealAnimation(targetSection);
-    }, targetSection);
-    return () => {
-      ctx.revert();
-      // ctx.kill();
-    };
+    const revealAnimationRef = initRevealAnimation(targetSection);
+
+    return revealAnimationRef.kill;
   }, [targetSection]);
+
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     initRevealAnimation(targetSection);
+  //   }, targetSection);
+  //   return () => {
+  //     ctx.revert();
+  //     // ctx.kill();
+  //   };
+  // }, [targetSection]);
 
   const renderSectionTitle = (): React.ReactNode => (
     <div className="flex flex-col">
@@ -79,6 +79,7 @@ const SkillsSection = () => {
           <>
             {skill.icon.includes("icon-custom-") && (
               <Image
+                key={skill.icon}
                 src={`/projects/tech/${skill.icon}.svg`}
                 alt={skill.icon}
                 width={67}
@@ -89,7 +90,7 @@ const SkillsSection = () => {
             )}
             {!skill.icon.includes("icon-custom:") && (
               <Icon
-                key={skill.name}
+                key={skill.icon}
                 icon={skill.icon}
                 className="w-16 h-16 md:w-[72px] md:h-[72px] skill"
               />

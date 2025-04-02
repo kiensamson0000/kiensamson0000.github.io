@@ -58,59 +58,59 @@ const CollaborationSection = () => {
     });
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const textBgAnimation = initTextGradientAnimation(targetSection);
-      // Xử lý media query động
-      const mediaQuery = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
-      const updateAnimations = (): void => {
-        if (mediaQuery.matches) {
-          slidingAnimation.current?.kill();
-          slidingAnimation.current = initSlidingTextAnimation(targetSection);
-        } else {
-          slidingAnimation.current?.kill();
-        }
-      };
-      mediaQuery.addEventListener("change", updateAnimations);
-      updateAnimations(); // Khởi tạo ban đầu
-      const onResize = () => {
-        slidingAnimation.current?.kill();
-        if (mediaQuery.matches) {
-          slidingAnimation.current = initSlidingTextAnimation(targetSection);
-        }
-      };
-      window.addEventListener("resize", onResize);
-      return () => {
-        mediaQuery.removeEventListener("change", updateAnimations);
-        window.removeEventListener("resize", onResize);
-        textBgAnimation.kill();
-        slidingAnimation.current?.kill();
-      };
-    }, targetSection);
-
-    return () => ctx.revert();
-  }, []);
-
   // useEffect(() => {
-  //   const textBgAnimation = initTextGradientAnimation(targetSection);
+  //   const ctx = gsap.context(() => {
+  //     const textBgAnimation = initTextGradientAnimation(targetSection);
+  //     // Xử lý media query động
+  //     const mediaQuery = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+  //     const updateAnimations = (): void => {
+  //       if (mediaQuery.matches) {
+  //         slidingAnimation.current?.kill();
+  //         slidingAnimation.current = initSlidingTextAnimation(targetSection);
+  //       } else {
+  //         slidingAnimation.current?.kill();
+  //       }
+  //     };
+  //     mediaQuery.addEventListener("change", updateAnimations);
+  //     updateAnimations(); // Khởi tạo ban đầu
+  //     const onResize = () => {
+  //       slidingAnimation.current?.kill();
+  //       if (mediaQuery.matches) {
+  //         slidingAnimation.current = initSlidingTextAnimation(targetSection);
+  //       }
+  //     };
+  //     window.addEventListener("resize", onResize);
+  //     return () => {
+  //       mediaQuery.removeEventListener("change", updateAnimations);
+  //       window.removeEventListener("resize", onResize);
+  //       textBgAnimation.kill();
+  //       slidingAnimation.current?.kill();
+  //     };
+  //   }, targetSection);
 
-  //   let slidingAnimation: ScrollTrigger | undefined;
+  //   return () => ctx.revert();
+  // }, []);
 
-  //   const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
+  useEffect(() => {
+    const textBgAnimation = initTextGradientAnimation(targetSection);
 
-  //   if (matches) {
-  //     slidingAnimation = initSlidingTextAnimation(targetSection);
-  //   }
+    let slidingAnimation: ScrollTrigger | undefined;
 
-  //   return () => {
-  //     textBgAnimation.kill();
+    const { matches } = window.matchMedia(NO_MOTION_PREFERENCE_QUERY);
 
-  //     slidingAnimation?.kill();
-  //   };
-  // }, [quoteRef, targetSection]);
+    if (matches) {
+      slidingAnimation = initSlidingTextAnimation(targetSection);
+    }
+
+    return () => {
+      textBgAnimation.kill();
+
+      slidingAnimation?.kill();
+    };
+  }, [quoteRef, targetSection]);
 
   const renderSlidingText = (text: string, layoutClasses: string) => (
-    <p aria-hidden="true" className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>
+    <p className={`${layoutClasses} ${COLLABORATION_STYLE.SLIDING_TEXT}`}>
       {Array(5)
         .fill(text)
         .reduce((str, el) => str.concat(el), "")}
