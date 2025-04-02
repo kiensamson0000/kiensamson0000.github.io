@@ -88,8 +88,8 @@ export const PROJECTS: IProject[] = [
   },
   {
     name: "KMS -- Knowledge Management System",
-    image: "/projects/dlt-website.jpg",
-    blurImage: "/projects/blur/dlt-website-blur.jpg",
+    image: "/projects/kms-website.jpg",
+    blurImage: "/projects/blur/kms-website-blur.jpg",
     description:
       "A unified platform that centralizes knowledge, streamlines collaboration, and empowers data-driven decisions.",
     gradient: ["#245B57", "#004741"],
@@ -272,7 +272,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     size: ItemSize.SMALL,
     subtitle: "Website..............",
     // image: "/timeline/huminos.svg",
-    // slideImage: "/timeline/svg-lecture.jpg",
+    slideImage: "/timeline/project-portfolio.png",
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
   },
