@@ -295,7 +295,10 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     size: ItemSize.SMALL,
     subtitle:
       "Delivered full lifecycle development for internal web applications by combining front-end and back-end expertise, reducing production bugs by 30%, and mentoring team members to enhance operational efficiency.",
-    image: "/timeline/yody-logo.svg",
+    image: {
+      url: "/timeline/yody-logo.svg",
+      width: "65",
+    },
     slideImage: "/timeline/yody-unichat.png",
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
@@ -304,7 +307,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "2022",
     size: ItemSize.LARGE,
-    shouldDrawLine: false,
+    shouldDrawLine: true,
     alignment: Branch.RIGHT,
   },
   {
@@ -313,7 +316,10 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     size: ItemSize.SMALL,
     subtitle:
       "Engineered scalable APIs and integrated caching mechanisms with NodeJS and NestJS, achieving a 30% boost in application response times and ensuring system stability under high real-time messaging loads.",
-    image: "/timeline/yody-logo.svg",
+    image: {
+      url: "/timeline/yody-logo.svg",
+      width: "65",
+    },
     slideImage: "/timeline/yody-unicorn.jpg",
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
@@ -324,7 +330,10 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     size: ItemSize.SMALL,
     subtitle:
       "Optimized user interfaces by implementing advanced React.js techniques, dynamic component rendering, and modern state management, which increased user satisfaction by 25% and reduced support tickets by 20%.",
-    image: "/timeline/yody-logo.svg",
+    image: {
+      url: "/timeline/yody-logo.svg",
+      width: "65",
+    },
     slideImage: "/timeline/yody-it-department.jpg",
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
@@ -336,7 +345,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     type: NodeTypes.CHECKPOINT,
     title: "2021",
     size: ItemSize.LARGE,
-    shouldDrawLine: false,
+    shouldDrawLine: true,
     alignment: Branch.LEFT,
   },
   {
@@ -345,7 +354,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     size: ItemSize.SMALL,
     subtitle:
       "First job! 🥳 Engineered enterprise solutions with the Odoo framework by customizing ERP modules and integrating multi-channel platforms, achieving a 35% increase in client sales and a 50% reduction in manual errors.",
-    image: "/timeline/magenest-light.svg",
+    image: { url: "/timeline/magenest-light.svg", width: "145" },
     slideImage: "/timeline/magenest-odoo.png",
     shouldDrawLine: true,
     alignment: Branch.LEFT,
@@ -356,7 +365,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     size: ItemSize.SMALL,
     subtitle:
       "Graduated 2021 (2017–2021) with a Good GPA (3.24/4.0) — honed core software development, programming, and problem-solving foundations through academic projects.",
-    image: "/timeline/haui-logo.svg",
+    image: { url: "/timeline/haui-logo.svg", width: "145" },
     slideImage: "/timeline/haui-graduate.jpg",
     shouldDrawLine: true,
     alignment: Branch.LEFT,
@@ -370,10 +379,16 @@ export interface CheckpointNode {
   title: string;
   subtitle?: string;
   size: ItemSize;
-  image?: string;
+  image?: IImage;
   slideImage?: string;
   shouldDrawLine: boolean;
   alignment: Branch;
+}
+
+export interface IImage {
+  url: string;
+  width?: string;
+  height?: string;
 }
 
 export interface BranchNode {

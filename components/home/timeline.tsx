@@ -148,7 +148,7 @@ const TimelineSection = ({ isDesktop }: TimelineSectionProps) => {
 
     const titleSizeClass = size === ItemSize.LARGE ? "text-6xl" : "text-2xl";
     const logoString = image
-      ? `<img src='${image}' class='h-8 mb-2' loading='lazy' width='100' height='32' alt='${image}' />`
+      ? `<img src='${image.url}' class='h-8 mb-2' loading='lazy' width='${image?.width ? image?.width : "100"}' height='${image?.height ? image?.height : "32"}' alt='${image.url}' />`
       : "";
     const subtitleString = subtitle
       ? `<p class='text-xl mt-2 text-gray-200 font-medium tracking-wide'>${subtitle}</p>`
@@ -465,18 +465,25 @@ const TimelineSection = ({ isDesktop }: TimelineSectionProps) => {
       ref={screenContainer}
     >
       <Image
-        className="w-full h-8"
+        className="w-full h-8 mt-[-0.0625rem]"
         src="/timeline/title-bar.svg"
         alt="Title bar"
         width={644}
         height={34}
       />
-      <div className="relative h-full w-full -mt-2">
+
+      <div className="relative h-[calc(100%-2rem)] w-full mt-[-0.125rem]">
         <div className="absolute top-0 left-0 h-full w-full">
           {svgCheckpointItems.map((item, index) => (
             <Image
               className={`w-full absolute top-0 object-cover slide-${index + 1}`}
-              src={(item as CheckpointNode).slideImage || ""}
+              // src={(item as CheckpointNode).slideImage || ""}
+              // fix bug tam thoi => sau se phai sua logic phan shouldDrawLine = false
+              src={
+                (item as CheckpointNode).slideImage ||
+                (svgCheckpointItems[index - 1] as CheckpointNode)?.slideImage ||
+                ""
+              }
               key={`${(item as CheckpointNode).title}-${index}`}
               alt="Timeline"
               layout="fill"
