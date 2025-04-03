@@ -465,26 +465,20 @@ const TimelineSection = ({ isDesktop }: TimelineSectionProps) => {
       ref={screenContainer}
     >
       <Image
-        className="w-full h-8 mt-[-0.0625rem]"
+        className="w-full h-7"
         src="/timeline/title-bar.svg"
         alt="Title bar"
         width={644}
         height={34}
       />
 
-      <div className="relative h-[calc(100%-2rem)] w-full mt-[-0.125rem]">
+      <div className="relative h-full w-full mt-[-0.12rem]">
         <div className="absolute top-0 left-0 h-full w-full">
-          {svgCheckpointItems.map((item, index) => (
+          {svgCheckpointItems.map((item: CheckpointNode, index) => (
             <Image
-              className={`w-full absolute top-0 object-cover slide-${index + 1}`}
-              // src={(item as CheckpointNode).slideImage || ""}
-              // fix bug tam thoi => sau se phai sua logic phan shouldDrawLine = false
-              src={
-                (item as CheckpointNode).slideImage ||
-                (svgCheckpointItems[index - 1] as CheckpointNode)?.slideImage ||
-                ""
-              }
-              key={`${(item as CheckpointNode).title}-${index}`}
+              className={`w-full absolute top-0 ${item.slideImage?.className ? item.slideImage.className : "object-cover"} slide-${index + 1}`}
+              src={item.slideImage?.url || ""}
+              key={`${item.title}-${index}`}
               alt="Timeline"
               layout="fill"
             />

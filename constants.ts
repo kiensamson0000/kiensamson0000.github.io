@@ -106,6 +106,16 @@ export const PROJECTS: IProject[] = [
     url: "",
     tech: ["react", "typescript", "redux-filled", "antd", "sass"],
   },
+  {
+    name: "Portfolio Website",
+    image: "/projects/fullpage-test.png",
+    blurImage: "/projects/fullpage-test.png",
+    description:
+      "Full Stack Software Engineer's portfolio showcasing projects, skills, timeline, and collaboration opportunities.",
+    url: "",
+    gradient: ["#142D46", "#2E4964"],
+    tech: ["react", "next", "typescript", "tailwind", "sass"],
+  },
 ];
 // gradient: ["#1F6582", "#1ABCFE"],
 // gradient: ["#153BB9", "#0E2C8B"],
@@ -113,7 +123,6 @@ export const PROJECTS: IProject[] = [
 //     gradient: ["#17007B", "#3A2C79"],
 //     gradient: ["#5E4C06", "#746528"],
 //     gradient: ["#172839", "#334659"],
-//     gradient: ["#142D46", "#2E4964"],
 //     gradient: ["#470700", "#712A23"],
 //     gradient: ["#552A04", "#614023"],
 //     gradient: ["#685506", "#7B6921"],
@@ -255,29 +264,19 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     alignment: Branch.LEFT,
   },
   {
-    type: NodeTypes.DIVERGE,
-  },
-  {
     type: NodeTypes.CHECKPOINT,
     title: "Full-Stack Developer",
     size: ItemSize.SMALL,
     subtitle: "Freelancer",
-    // slideImage: "/timeline/svg-lecture.jpg",
+    image: {
+      url: "/timeline/freelancer-logo.svg",
+      width: "145",
+    },
+    slideImage: {
+      url: "/timeline/freelancer-image-3.png",
+    },
     shouldDrawLine: true,
-    alignment: Branch.RIGHT,
-  },
-  {
-    type: NodeTypes.CHECKPOINT,
-    title: "Portfolio Website",
-    size: ItemSize.SMALL,
-    subtitle: "Website..............",
-    // image: "/timeline/huminos.svg",
-    slideImage: "/timeline/project-portfolio.png",
-    shouldDrawLine: true,
-    alignment: Branch.RIGHT,
-  },
-  {
-    type: NodeTypes.CONVERGE,
+    alignment: Branch.LEFT,
   },
   {
     type: NodeTypes.CHECKPOINT,
@@ -299,13 +298,21 @@ export const TIMELINE: Array<TimelineNodeV2> = [
       url: "/timeline/yody-logo.svg",
       width: "65",
     },
-    slideImage: "/timeline/yody-unichat.png",
+    slideImage: {
+      url: "/timeline/yody-unichat.png",
+      className: "object-fill",
+    },
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
   },
   {
     type: NodeTypes.CHECKPOINT,
     title: "2022",
+    // fix bug tam thoi => sau se phai sua logic => shouldDrawLine = false
+    slideImage: {
+      url: "/timeline/yody-unichat.png",
+      className: "object-fill",
+    },
     size: ItemSize.LARGE,
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
@@ -320,7 +327,9 @@ export const TIMELINE: Array<TimelineNodeV2> = [
       url: "/timeline/yody-logo.svg",
       width: "65",
     },
-    slideImage: "/timeline/yody-unicorn.jpg",
+    slideImage: {
+      url: "/timeline/yody-unicorn.jpg",
+    },
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
   },
@@ -334,7 +343,9 @@ export const TIMELINE: Array<TimelineNodeV2> = [
       url: "/timeline/yody-logo.svg",
       width: "65",
     },
-    slideImage: "/timeline/yody-it-department.jpg",
+    slideImage: {
+      url: "/timeline/yody-it-department.jpg",
+    },
     shouldDrawLine: true,
     alignment: Branch.RIGHT,
   },
@@ -344,6 +355,10 @@ export const TIMELINE: Array<TimelineNodeV2> = [
   {
     type: NodeTypes.CHECKPOINT,
     title: "2021",
+    // fix bug tam thoi => sau se phai sua logic => shouldDrawLine = false
+    slideImage: {
+      url: "/timeline/yody-it-department.jpg",
+    },
     size: ItemSize.LARGE,
     shouldDrawLine: true,
     alignment: Branch.LEFT,
@@ -355,7 +370,10 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     subtitle:
       "First job! 🥳 Engineered enterprise solutions with the Odoo framework by customizing ERP modules and integrating multi-channel platforms, achieving a 35% increase in client sales and a 50% reduction in manual errors.",
     image: { url: "/timeline/magenest-light.svg", width: "145" },
-    slideImage: "/timeline/magenest-odoo.png",
+    slideImage: {
+      url: "/timeline/magenest-odoo.png",
+      className: "object-fill",
+    },
     shouldDrawLine: true,
     alignment: Branch.LEFT,
   },
@@ -366,7 +384,9 @@ export const TIMELINE: Array<TimelineNodeV2> = [
     subtitle:
       "Graduated 2021 (2017–2021) with a Good GPA (3.24/4.0) — honed core software development, programming, and problem-solving foundations through academic projects.",
     image: { url: "/timeline/haui-logo.svg", width: "145" },
-    slideImage: "/timeline/haui-graduate.jpg",
+    slideImage: {
+      url: "/timeline/haui-graduate.jpg",
+    },
     shouldDrawLine: true,
     alignment: Branch.LEFT,
   },
@@ -380,7 +400,7 @@ export interface CheckpointNode {
   subtitle?: string;
   size: ItemSize;
   image?: IImage;
-  slideImage?: string;
+  slideImage?: ISlideImage;
   shouldDrawLine: boolean;
   alignment: Branch;
 }
@@ -389,6 +409,11 @@ export interface IImage {
   url: string;
   width?: string;
   height?: string;
+}
+
+export interface ISlideImage {
+  url: string;
+  className?: string;
 }
 
 export interface BranchNode {
