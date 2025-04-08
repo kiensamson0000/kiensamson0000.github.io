@@ -58,8 +58,8 @@ export interface IProject {
 export const PROJECTS: IProject[] = [
   {
     name: "Unichat -- Yody's internal platform",
-    image: "/projects/myokr.jpg",
-    blurImage: "/projects/blur/myokr-blur.jpg",
+    image: "/projects/unichat-project.png",
+    blurImage: "/projects/blur/unichat-project.png",
     description:
       "Managed 200+ FB pages, processing 1M+ messages/orders, supporting 1000+ users, and optimizing sales and costs.",
     gradient: ["#153BB9", "#0E2C8B"],
@@ -78,38 +78,38 @@ export const PROJECTS: IProject[] = [
   },
   {
     name: "WoMS -- Workflow Management System",
-    image: "/projects/dl-unify.jpg",
-    blurImage: "/projects/blur/dl-unify-blur.jpg",
+    image: "/projects/woms-project.png",
+    blurImage: "/projects/woms-project.png",
     description:
       "Web app for 1,000+ users achieving 40% less task time, 32% more on-time deadlines, and 25% shorter meetings.",
-    gradient: ["#003052", "#167187"],
+    gradient: ["#1F6582", "#1ABCFE"],
     url: "",
     tech: ["react", "typescript", "redux-filled", "antd", "sass"],
   },
   {
     name: "KMS -- Knowledge Management System",
-    image: "/projects/kms-website.jpg",
-    blurImage: "/projects/blur/kms-website-blur.jpg",
+    image: "/projects/kms-website.png",
+    blurImage: "/projects/kms-website.png",
     description:
       "A unified platform that centralizes knowledge, streamlines collaboration, and empowers data-driven decisions.",
-    gradient: ["#245B57", "#004741"],
+    gradient: ["#875A7B", "#5A2B46"],
     url: "",
     tech: ["python", "icon-custom-skill_odoo", "javascript", "sass"],
   },
   {
     name: "Unicorn -- O2O Omnichannel Retail Platform",
-    image: "/projects/huminos.jpg",
-    blurImage: "/projects/blur/huminos-blur.jpg",
+    image: "/projects/unicorn-project.png",
+    blurImage: "/projects/blur/unicorn-project.png",
     description:
       "Multi-channel warehouse-sales platform serving 1,500+ users, boosting inventory accuracy 30% and reducing order time 25%.",
-    gradient: ["#17007B", "#3A2C79"],
+    gradient: ["#003052", "#167187"],
     url: "",
     tech: ["react", "typescript", "redux-filled", "antd", "sass"],
   },
   {
     name: "Portfolio Website",
-    image: "/projects/fullpage-test.png",
-    blurImage: "/projects/fullpage-test.png",
+    image: "/projects/portfolio-website.png",
+    blurImage: "/projects/portfolio-website.png",
     description:
       "Full Stack Software Engineer's portfolio showcasing projects, skills, timeline, and collaboration opportunities.",
     url: "",
@@ -117,15 +117,6 @@ export const PROJECTS: IProject[] = [
     tech: ["react", "next", "typescript", "tailwind", "sass"],
   },
 ];
-// gradient: ["#1F6582", "#1ABCFE"],
-// gradient: ["#153BB9", "#0E2C8B"],
-//     gradient: ["#3A0000", "#771E1E"],
-//     gradient: ["#17007B", "#3A2C79"],
-//     gradient: ["#5E4C06", "#746528"],
-//     gradient: ["#172839", "#334659"],
-//     gradient: ["#470700", "#712A23"],
-//     gradient: ["#552A04", "#614023"],
-//     gradient: ["#685506", "#7B6921"],
 
 export interface ISkillDetail {
   name: string;
