@@ -96,6 +96,7 @@ const ProjectTile = ({
         src={image}
         alt={name}
         layout="fill"
+        loading="lazy"
         className={`${styles.ProjectImg} z-0`}
       />
     </span>

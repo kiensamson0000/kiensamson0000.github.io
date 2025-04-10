@@ -481,6 +481,7 @@ const TimelineSection = ({ isDesktop }: TimelineSectionProps) => {
               key={`${item.title}-${index}`}
               alt="Timeline"
               layout="fill"
+              loading="lazy"
             />
           ))}
         </div>
