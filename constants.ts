@@ -59,7 +59,7 @@ export const PROJECTS: IProject[] = [
   {
     name: "Unichat -- Yody's internal platform",
     image: "/projects/unichat-project.png",
-    blurImage: "/projects/blur/unichat-project_optimized.png",
+    blurImage: "/projects/blur/unichatProjectBlur.png",
     description:
       "Managed 200+ FB pages, processing 1M+ messages/orders, supporting 1000+ users, and optimizing sales and costs.",
     gradient: ["#153BB9", "#0E2C8B"],
@@ -79,7 +79,7 @@ export const PROJECTS: IProject[] = [
   {
     name: "WoMS -- Workflow Management System",
     image: "/projects/woms-project.png",
-    blurImage: "/projects/blur/woms-project_optimized.png",
+    blurImage: "/projects/blur/womsProjectBlur.png",
     description:
       "Web app for 1,000+ users achieving 40% less task time, 32% more on-time deadlines, and 25% shorter meetings.",
     gradient: ["#1F6582", "#1ABCFE"],
@@ -89,7 +89,7 @@ export const PROJECTS: IProject[] = [
   {
     name: "KMS -- Knowledge Management System",
     image: "/projects/kms-website.png",
-    blurImage: "/projects/blur/kms-website_optimized.png",
+    blurImage: "/projects/blur/kmsWebsiteBlur.png",
     description:
       "A unified platform that centralizes knowledge, streamlines collaboration, and empowers data-driven decisions.",
     gradient: ["#875A7B", "#5A2B46"],
@@ -99,7 +99,7 @@ export const PROJECTS: IProject[] = [
   {
     name: "Unicorn -- O2O Omnichannel Retail Platform",
     image: "/projects/unicorn-project.png",
-    blurImage: "/projects/blur/unicorn-project_optimized.png",
+    blurImage: "/projects/blur/unicornProjectBlur.png",
     description:
       "Multi-channel warehouse-sales platform serving 1,500+ users, boosting inventory accuracy 30% and reducing order time 25%.",
     gradient: ["#003052", "#167187"],
@@ -107,9 +107,18 @@ export const PROJECTS: IProject[] = [
     tech: ["react", "typescript", "redux-filled", "antd", "sass"],
   },
   {
+    name: "DashStack -- Admin Dashboard",
+    image: "/projects/adminDashboard.png",
+    blurImage: "/projects/blur/adminDashboard-blur.png",
+    description: "",
+    url: "UI auto-generated from Figma by Cursor AI on MCP Server",
+    gradient: ["#245B57", "#004741"],
+    tech: ["react", "typescript", "tailwind"],
+  },
+  {
     name: "Portfolio Website",
     image: "/projects/portfolio-website.png",
-    blurImage: "/projects/blur/portfolio-website_optimized.png",
+    blurImage: "/projects/blur/portfolioWebsiteBlur.png",
     description:
       "Full Stack Software Engineer's portfolio showcasing projects, skills, timeline, and collaboration opportunities.",
     url: "",
