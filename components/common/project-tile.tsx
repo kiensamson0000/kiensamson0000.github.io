@@ -102,9 +102,17 @@ const ProjectTile = ({
     </span>
   );
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (!project.url) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+  };
+
   return (
     <a
-      // href={project.url}
+      href={project.url}
       target="_blank"
       rel="noreferrer"
       className="link overflow-hidden rounded-3xl snap-start"
@@ -113,6 +121,7 @@ const ProjectTile = ({
         flex: "1 0 auto",
         WebkitMaskImage: "-webkit-radial-gradient(white, black)",
       }}
+      onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => handleClick(e)}
     >
       <div
         ref={projectCard}
