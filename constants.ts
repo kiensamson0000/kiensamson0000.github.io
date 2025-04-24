@@ -30,7 +30,7 @@ export const MENULINKS = [
 
 export const TYPED_STRINGS = [
   "Building scalable web solutions",
-  "Full-Stack expert in web innovation",
+  "Full Stack expert in web innovation",
   "Designing seamless, user-centric UIs",
   "Delivering agile, innovative results",
   "Let’s create impactful solutions",
@@ -265,7 +265,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
   },
   {
     type: NodeTypes.CHECKPOINT,
-    title: "Full-Stack Developer",
+    title: "Full Stack Developer",
     size: ItemSize.SMALL,
     subtitle: "Freelancer",
     image: {
@@ -290,7 +290,7 @@ export const TIMELINE: Array<TimelineNodeV2> = [
   },
   {
     type: NodeTypes.CHECKPOINT,
-    title: "Full-Stack Developer",
+    title: "Full Stack Developer",
     size: ItemSize.SMALL,
     subtitle:
       "Delivered full lifecycle development for internal web applications by combining front-end and back-end expertise, reducing production bugs by 30%, and mentoring team members to enhance operational efficiency.",

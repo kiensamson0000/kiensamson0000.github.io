@@ -69,9 +69,9 @@ const AboutSection = () => {
     <div ref={quoteRef}>
       <h1 className="font-medium text-[1.75rem] sm:text-4xl md:text-[2.5rem]">
         <span className={`about-1 leading-tight ${willChange ? "will-change-opacity" : ""}`}>
-          Full-Stack Software Engineer with 2.5 years of experience, combining 2.5 years of
-          expertise in developing engaging, user-centric front-end solutions with 1 year of
-          experience in building robust back-end systems.
+          Full Stack Software Engineer with 3 years of experience, combining 3 years of expertise in
+          developing engaging, user-centric front-end solutions with 1.5 years of experience in
+          building robust back-end systems.
         </span>
       </h1>
       <h1 className="font-medium text-[1.75rem] sm:text-4xl md:text-[2.5rem] mt-2">

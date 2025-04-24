@@ -92,7 +92,7 @@ const CollaborationSection = () => {
 
   return (
     <section className={COLLABORATION_STYLE.SECTION} ref={targetSection}>
-      {renderSlidingText(" Full-Stack Expertise Proven Results Modern Tech Stack ", "ui-left")}
+      {renderSlidingText(" Full Stack Expertise Proven Results Modern Tech Stack ", "ui-left")}
       {renderTitle()}
       {renderSlidingText(
         " Impactful Scalable Efficient Solutions Innovative ",

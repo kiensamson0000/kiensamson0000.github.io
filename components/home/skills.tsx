@@ -53,7 +53,7 @@ const SkillsSection = () => {
       <p className="section-title-sm seq">SKILLS</p>
       <h1 className="section-heading seq mt-2">My Skills</h1>
       <h2 className="text-2xl md:max-w-[50rem] w-full seq mt-2">
-        A highly skilled full-stack developer with expertise in crafting efficient and scalable web
+        A highly skilled full stack developer with expertise in crafting efficient and scalable web
         applications. I bring a strong foundation in both dynamic front-end development and robust
         back-end architecture.
       </h2>
